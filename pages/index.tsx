@@ -10,8 +10,8 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <Navbar />
       <main className="h-screen w-screen bg-slate-600">
-        <Navbar />
         <p>test</p>
       </main>
     </div>

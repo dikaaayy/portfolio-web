@@ -8,12 +8,12 @@ datasource db {
 }
 
 model post {
-  id            BigInt  @id
+  id            String  @id
   author        String?
   project_name  String?
   release_date  String?
   tech_stack    String?
   content       String?
   image         String?
-  project_title String?
+  project_title String? @unique
 }

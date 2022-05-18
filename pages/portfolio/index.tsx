@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import { prisma } from '../../lib/prisma'
 import Head from 'next/head'
-import { post } from '@prisma/client'
 
 import {
   SiNextdotjs,
@@ -19,7 +18,7 @@ export async function getStaticProps() {
       project_name: true,
       image: true,
       tech_stack: true,
-      // project_title: true,
+      project_title: true,
     },
   })
 
@@ -34,7 +33,7 @@ export default function portfolio({ posts }: any) {
   // console.log(posts)
   const filterImage = (images: String) => {
     const array = images.split(',')
-    return array[2]
+    return array[0]
   }
   const techStackArr = (stack: String) => {
     const arrays = stack.split(',')
@@ -66,8 +65,11 @@ export default function portfolio({ posts }: any) {
       <div className="mt-20 grid grid-cols-1 gap-y-14 gap-x-4 md:grid-cols-2 md:justify-items-center ">
         {posts.map((post: any) => {
           return (
-            <Link key={post.project_name} href={'https://google.com'}>
-              <div className="flex h-[30vh] w-full flex-col justify-start gap-y-1 rounded-lg bg-gray-300 px-5 shadow-lg transition duration-200 hover:scale-[1.015] md:h-[40vh] md:w-[90%] lg:h-[50vh] lg:w-[80%]">
+            <Link
+              key={post.project_name}
+              href={'/portfolio/' + post.project_title}
+            >
+              <a className="flex h-[30vh] w-full flex-col justify-start gap-y-1 rounded-lg bg-gray-300 px-5 shadow-lg transition duration-200 hover:scale-[1.015] md:h-[40vh] md:w-[90%] lg:h-[50vh] lg:w-[80%]">
                 <div className="relative flex h-[88%] w-full">
                   <Image
                     src={filterImage(post.image)}
@@ -91,7 +93,7 @@ export default function portfolio({ posts }: any) {
                   </div>
                   <p className="text-xl font-semibold">{post.project_name}</p>
                 </div>
-              </div>
+              </a>
             </Link>
           )
         })}
