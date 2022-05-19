@@ -69,7 +69,7 @@ export default function portfolio({ posts }: any) {
               key={post.project_name}
               href={'/portfolio/' + post.project_title}
             >
-              <a className="flex h-[30vh] w-full flex-col justify-start gap-y-1 rounded-lg bg-customDark-lightGray px-5 shadow-lg transition duration-200 hover:scale-[1.015] md:h-[40vh] md:w-[90%] lg:h-[50vh] lg:w-[80%]">
+              <a className="flex h-[30vh] w-full flex-col justify-start gap-y-1 rounded-lg bg-customDark-lightGray px-5 text-customDark-darkGray shadow-lg transition duration-200 hover:scale-[1.015] md:h-[40vh] md:w-[90%] lg:h-[50vh] lg:w-[80%]">
                 <div className="relative flex h-[88%] w-full">
                   <Image
                     src={filterImage(post.image)}

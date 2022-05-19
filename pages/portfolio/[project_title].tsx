@@ -28,13 +28,13 @@ export default function Detail({ post }: any) {
   }, [])
   // console.log(post)
   return (
-    <div className="">
+    <div className="select-none">
       <Head>
         <title>{post.project_name} | Dika</title>
       </Head>
       <Navbar />
-      <div className="w-screen bg-custom-darkGray pb-10 pt-32">
-        <div className="mx-auto space-y-4 rounded-md border-[1px] bg-custom-lightGray px-3 py-4 shadow-xl sm:w-[80vw] xl:w-[65vw]">
+      <div className="w-screen bg-customDark-darkGray pb-10 pt-32">
+        <div className="mx-auto space-y-4 rounded-md border-[1px] bg-customDark-lightGray px-3 py-4 text-customDark-darkGray shadow-xl sm:w-[80vw] xl:w-[65vw]">
           <div className="space-y-1">
             <img
               src={images[0]}
