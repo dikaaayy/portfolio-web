@@ -6,12 +6,12 @@ const Home: NextPage = () => {
   return (
     <div>
       <Head>
-        <title>Portfolio Web | Dika</title>
+        <title>My Personal Web | Dika</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <Navbar />
-      <main className="h-screen w-screen bg-slate-600">
+      <main className="h-screen w-screen bg-customDark-darkGray pt-20 text-white">
         <p>test</p>
       </main>
     </div>

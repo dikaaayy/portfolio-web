@@ -11,6 +11,7 @@ import {
   SiSocketdotio,
 } from 'react-icons/si'
 import Link from 'next/link'
+import Navbar from '../../components/Navbar'
 
 export async function getStaticProps() {
   const data = await prisma.post.findMany({
@@ -59,17 +60,16 @@ export default function portfolio({ posts }: any) {
         <title>My Portfolio | Dika</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <div>
-        <p>test</p>
-      </div>
-      <div className="mt-20 grid grid-cols-1 gap-y-14 gap-x-4 md:grid-cols-2 md:justify-items-center ">
+
+      <Navbar />
+      <div className="grid w-[100vw] grid-cols-1 gap-y-14 bg-customDark-darkGray pt-32 md:grid-cols-2 md:justify-items-center">
         {posts.map((post: any) => {
           return (
             <Link
               key={post.project_name}
               href={'/portfolio/' + post.project_title}
             >
-              <a className="flex h-[30vh] w-full flex-col justify-start gap-y-1 rounded-lg bg-gray-300 px-5 shadow-lg transition duration-200 hover:scale-[1.015] md:h-[40vh] md:w-[90%] lg:h-[50vh] lg:w-[80%]">
+              <a className="flex h-[30vh] w-full flex-col justify-start gap-y-1 rounded-lg bg-customDark-lightGray px-5 shadow-lg transition duration-200 hover:scale-[1.015] md:h-[40vh] md:w-[90%] lg:h-[50vh] lg:w-[80%]">
                 <div className="relative flex h-[88%] w-full">
                   <Image
                     src={filterImage(post.image)}

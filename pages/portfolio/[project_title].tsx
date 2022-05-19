@@ -2,6 +2,8 @@ import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import Navbar from '../../components/Navbar'
 import { prisma } from '../../lib/prisma'
+import { RiCalendarCheckLine } from 'react-icons/ri'
+import Head from 'next/head'
 
 export async function getServerSideProps(context: any) {
   const { project_title } = context.query
@@ -24,17 +26,35 @@ export default function Detail({ post }: any) {
     }
     setImages(filterImage(post.image))
   }, [])
-  // console.log(images[0])
+  // console.log(post)
   return (
-    <>
+    <div className="">
+      <Head>
+        <title>{post.project_name} | Dika</title>
+      </Head>
       <Navbar />
-      <div className="h-screen w-screen border-2 border-blue-500">
-        {console.log(images[0])}
-        {/* <img src={images[0]} className="w-[50vw]" alt="" /> */}
-        <div className="relative h-full w-[50vw]">
-          <Image src={images[0]} layout="fill" objectFit="contain" />
+      <div className="w-screen bg-custom-darkGray pb-10 pt-32">
+        <div className="mx-auto space-y-4 rounded-md border-[1px] bg-custom-lightGray px-3 py-4 shadow-xl sm:w-[80vw] xl:w-[65vw]">
+          <div className="space-y-1">
+            <img
+              src={images[0]}
+              alt={post.project_name + '-img'}
+              className="mb-4 rounded"
+            />
+            <div className="flex items-center gap-x-6">
+              <div className="flex items-center gap-x-2">
+                <p className="font-medium">{post.author}</p>
+              </div>
+              <div className="flex items-center gap-x-1">
+                <RiCalendarCheckLine size={20} className="text-green-500" />
+                <p className="font-medium">{post.release_date}</p>
+              </div>
+            </div>
+            <p className="text-2xl font-semibold">{post.project_name}</p>
+          </div>
+          <p>{post.content}</p>
         </div>
       </div>
-    </>
+    </div>
   )
 }
