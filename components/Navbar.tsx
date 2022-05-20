@@ -27,23 +27,16 @@ export default function Navbar() {
         )}
       </Head>
       <div className="navbar-container">
-        <div className="flex items-center gap-x-10">
+        <div className="vertical-center gap-x-10">
           <Link href="/">
-            <a className="rounded-md px-3 py-2 text-lg transition hover:bg-[#d1d1d1] dark:hover:bg-inherit dark:hover:bg-[#2c2c2c]">
-              Home
-            </a>
+            <a className="navbar-button">Home</a>
           </Link>
           <Link href="/portfolio">
-            <a className="rounded-md px-3 py-2 text-lg transition hover:bg-[#d1d1d1] dark:hover:bg-inherit dark:hover:bg-[#2c2c2c]">
-              Portfolio
-            </a>
+            <a className="navbar-button">Portfolio</a>
           </Link>
         </div>
-        <div className="flex items-center">
-          <button
-            className="group rounded-md bg-[#d1d1d1] p-2 dark:bg-[#2e2e2e]"
-            onClick={darkHandler}
-          >
+        <div className="vertical-center">
+          <button className="dark-mode-button group" onClick={darkHandler}>
             {theme === 'dark' ? (
               <FiSun
                 size={30}
