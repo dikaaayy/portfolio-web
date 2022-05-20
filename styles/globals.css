@@ -5,3 +5,8 @@
 ::-webkit-scrollbar {
   display: none;
 }
+@layer components {
+  .navbar-container {
+    @apply fixed top-0 z-50 flex h-20 w-screen justify-between border-b-[1px] border-customLight-darkGray bg-customLight-lightGray px-10 font-medium text-customLight-darkGray dark:border-customDark-lightGray dark:bg-customDark-darkGray dark:text-customDark-lightGray  md:justify-around md:px-0;
+  }
+}

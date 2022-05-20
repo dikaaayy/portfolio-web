@@ -7,12 +7,21 @@ const Home: NextPage = () => {
     <div>
       <Head>
         <title>My Personal Web | Dika</title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <Navbar />
-      <main className="h-screen w-screen bg-customDark-darkGray pt-20 text-white">
-        <p>test</p>
+      <main className="flex h-screen w-screen bg-customLight-lightGray pt-20 text-customLight-darkGray dark:bg-customDark-darkGray dark:text-customDark-lightGray">
+        <div className="flex w-1/2 flex-col items-center justify-center gap-y-4 border-2 border-blue-500">
+          <div className="w-1/3 border-2">
+            <p className="text-6xl font-semibold">
+              Hi, I'm <span className="text-red-500">Andika Yudhistira</span>
+            </p>
+          </div>
+          <p>lorem</p>
+        </div>
+        <div className="w-1/2 border-2 border-yellow-500">
+          <p>test</p>
+        </div>
       </main>
     </div>
   )

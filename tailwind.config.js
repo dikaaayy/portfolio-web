@@ -7,12 +7,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        sunYellow: '#ffd600',
         customDark: {
           darkGray: '#1f1f1f',
-          lightGray: '#eeeeee',
+          lightGray: '#e3e3e3',
         },
         customLight: {
-          darkGray: '#1f1f1f',
+          darkGray: '#2e2e2e',
           lightGray: '#eeeeee',
         },
       },
