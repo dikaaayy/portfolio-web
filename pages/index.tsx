@@ -1,7 +1,9 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import Link from 'next/link'
 import { useRef } from 'react'
 import Navbar from '../components/Navbar'
+import { BsLinkedin, BsGithub, BsGlobe } from 'react-icons/bs'
 
 const Home: NextPage = () => {
   const aboutme = useRef<HTMLDivElement>(null)
@@ -22,16 +24,33 @@ const Home: NextPage = () => {
             <p>lorem</p>
           </div>
           <div className="flex w-1/2 flex-col items-center justify-center gap-y-10 border-yellow-500">
-            <p>Image goes here</p>
+            <div className="h-1/2 w-1/2 border-2 border-blue-500"></div>
             <div className="selection: flex gap-x-4">
-              <div className="rounded-full border-2 bg-white px-3 py-1 text-customDark-darkGray transition hover:-translate-y-2">
-                github
+              <div className="group rounded-full">
+                <div className="main-social-button vertical-center">
+                  <BsGithub size={25} />
+                  <Link href="https://www.github.com/dikaaayy">
+                    <a>Github</a>
+                  </Link>
+                </div>
               </div>
-              <div className="rounded-full border-2 bg-white px-3 py-1 text-customDark-darkGray">
-                linkedin
+              <div className="group rounded-full">
+                <div className="main-social-button vertical-center">
+                  <div className="rounded-md bg-white">
+                    <BsLinkedin size={25} className="text-[#0077B5]" />
+                  </div>
+                  <Link href="https://www.linkedin.com/in/andika-yudhistira-1aab76206">
+                    <a>Linkedin</a>
+                  </Link>
+                </div>
               </div>
-              <div className="rounded-full border-2 bg-white px-3 py-1 text-customDark-darkGray">
-                email
+              <div className="group rounded-full">
+                <div className="main-social-button vertical-center">
+                  <BsGlobe size={22} />
+                  <Link href="mailto:andikayudhistira@mail.ugm.ac.id">
+                    <a>Email</a>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
