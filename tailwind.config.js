@@ -13,8 +13,8 @@ module.exports = {
           lightGray: '#e3e3e3',
         },
         customLight: {
-          darkGray: '#2e2e2e',
-          lightGray: '#eeeeee',
+          darkGray: '#3D330A',
+          lightGray: '#FBF7E7',
         },
       },
     },
