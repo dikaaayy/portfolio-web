@@ -52,7 +52,7 @@ export default function portfolio({ posts }: any) {
         </div>
       )
     if (tech === 'ReactJS')
-      return <SiReact size={19} className="text-blue-300" />
+      return <SiReact size={19} className="text-[#61DBFB]" />
     if (tech === "Spotify Developer's API")
       return <SiSpotify size={18} className="text-green-500" />
     if (tech === 'TMDB API') return <SiThemoviedatabase size={18} />

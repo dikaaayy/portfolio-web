@@ -17,6 +17,15 @@ module.exports = {
           lightGray: '#FBF7E7',
         },
       },
+      keyframes: {
+        swish: {
+          '0%': { transform: 'translateX(-50%)' },
+          '100%': { transform: 'translateX(1.5rem)' },
+        },
+      },
+      animation: {
+        swisher: 'swish 2s ease-in-out infinite',
+      },
     },
   },
   plugins: [],

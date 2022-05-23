@@ -1,124 +1,73 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Link from 'next/link'
 import { useRef } from 'react'
 import Navbar from '../components/Navbar'
-import { BsLinkedin, BsGithub, BsGlobe } from 'react-icons/bs'
+import { Parallax } from 'react-scroll-parallax'
+import Image from 'next/image'
+import MainHeader from '../components/MainHeader'
+import Spin from '../components/Spin'
 
 const Home: NextPage = () => {
   const aboutme = useRef<HTMLDivElement>(null)
+
+  const goToRef = () => {
+    aboutme.current?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'nearest',
+      inline: 'start',
+    })
+  }
   return (
-    <>
+    <div className="relative bg-customLight-lightGray pb-[20rem] text-customLight-darkGray dark:bg-customDark-darkGray dark:text-customDark-lightGray">
       <Head>
         <title>My Personal Web | Dika</title>
       </Head>
       <Navbar />
-      <div className="bg-customLight-lightGray pb-20 text-customLight-darkGray dark:bg-customDark-darkGray dark:text-customDark-lightGray">
-        <main className="relative flex h-screen w-screen pt-20">
-          <div className="flex w-1/2 flex-col items-center justify-center gap-y-4 border-blue-500">
-            <div className="w-1/3">
-              <p className="text-6xl font-semibold">
-                Hi, I'm <span className="text-red-500">Andika Yudhistira</span>
+      <>
+        <MainHeader onClick={goToRef} />
+        <Parallax className="mt-20 lg:mt-48">
+          <Parallax
+            speed={0}
+            className="relative sm:static sm:flex sm:justify-evenly"
+          >
+            <div
+              className="relative mx-auto w-[80vw] space-y-7 sm:mx-0 sm:w-[40%]"
+              ref={aboutme}
+            >
+              <p className="p-2 text-4xl font-semibold sm:p-0">About Me</p>
+              <p className="rounded-md bg-[#838383] bg-opacity-10 p-2 text-black dark:bg-white dark:bg-opacity-10 dark:text-white sm:bg-inherit sm:p-0 sm:dark:bg-inherit">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque
+                perspiciatis omnis eligendi nesciunt totam commodi aliquam
+                officiis nemo saepe fuga temporibus voluptatem, a rerum amet
+                unde modi aperiam asperiores non distinctio dolores facere et
+                inventore. Esse, alias velit, quia a accusamus temporibus,
+                ducimus officiis quibusdam assumenda error consectetur eligendi
+                numquam consequatur cumque minus laborum itaque ea aperiam!
+                Recusandae ea dolorem eum, excepturi architecto fugit suscipit
+                eaque. Nemo atque ipsam ipsum inventore reprehenderit ullam
+                dicta iste officia quos magni, blanditiis, mollitia culpa
+                obcaecati temporibus expedita architecto. Inventore quisquam
+                veritatis hic assumenda, modi saepe illo excepturi, fuga ea
+                eaque expedita ipsa fugit.
               </p>
             </div>
-            <p>lorem</p>
-          </div>
-          <div className="flex w-1/2 flex-col items-center justify-center gap-y-10 border-yellow-500">
-            <div className="h-1/2 w-1/2 border-2 border-blue-500"></div>
-            <div className="selection: flex gap-x-4">
-              <div className="group rounded-full">
-                <div className="main-social-button vertical-center">
-                  <BsGithub size={25} />
-                  <Link href="https://www.github.com/dikaaayy">
-                    <a>Github</a>
-                  </Link>
-                </div>
-              </div>
-              <div className="group rounded-full">
-                <div className="main-social-button vertical-center">
-                  <div className="rounded-md bg-white">
-                    <BsLinkedin size={25} className="text-[#0077B5]" />
-                  </div>
-                  <Link href="https://www.linkedin.com/in/andika-yudhistira-1aab76206">
-                    <a>Linkedin</a>
-                  </Link>
-                </div>
-              </div>
-              <div className="group rounded-full">
-                <div className="main-social-button vertical-center">
-                  <BsGlobe size={22} />
-                  <Link href="mailto:andikayudhistira@mail.ugm.ac.id">
-                    <a>Email</a>
-                  </Link>
-                </div>
-              </div>
+            <div className="vertical-center absolute top-10 bottom-0 left-0 right-0 -z-10 m-auto blur-sm sm:static sm:m-0 sm:w-1/3 sm:blur-none">
+              <Spin />
             </div>
-          </div>
-          <svg
-            width="120"
-            height="100"
-            viewBox="0 0 120 100"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="group absolute bottom-0 left-0 right-0 mx-auto rotate-90"
-            onClick={() => {
-              aboutme.current?.scrollIntoView({
-                behavior: 'smooth',
-                block: 'nearest',
-                inline: 'start',
-              })
-            }}
-          >
-            <g id="triangles">
-              <g id="lightGroup" className="fill-[#665b51] dark:fill-[#dfc742]">
-                <path
-                  id="light1"
-                  opacity="0.8"
-                  d="M53.4872 46.3509C55.7436 47.6536 55.7436 50.9105 53.4872 52.2132L13.718 75.174C11.4615 76.4767 8.64104 74.8483 8.64104 72.2428L8.64104 26.3213C8.64104 23.7158 11.4616 22.0874 13.718 23.3901L53.4872 46.3509Z"
-                  className="translate-x-1/4 transition-all duration-[400ms] ease-linear"
-                />
-              </g>
-              <g id="darkGroup" className="fill-[#F3DB00] dark:fill-[#837669]">
-                <path
-                  id="dark1"
-                  opacity="0.8"
-                  d="M74.9231 46.915C77.1795 48.2177 77.1795 51.4746 74.9231 52.7773L34.3077 76.2266C32.0513 77.5294 29.2308 75.9009 29.2308 73.2955L29.2308 26.3968C29.2308 23.7914 32.0513 22.1629 34.3077 23.4657L74.9231 46.915Z"
-                  className="-translate-x-5 transition-all duration-[400ms] ease-linear group-hover:translate-x-1/2 group-hover:opacity-0"
-                />
-                <path
-                  id="dark2"
-                  opacity="0.8"
-                  d="M54.6154 46.915C56.8718 48.2177 56.8718 51.4746 54.6154 52.7773L14 76.2266C11.7436 77.5294 8.92307 75.9009 8.92307 73.2955L8.92308 26.3968C8.92308 23.7914 11.7436 22.1629 14 23.4657L54.6154 46.915Z"
-                  className="-translate-x-1/2  transition-all duration-[400ms] ease-linear group-hover:translate-x-0"
-                />
-              </g>
-            </g>
-          </svg>
-        </main>
-        <div
-          className="mx-auto mt-24 w-[75vw] space-y-5 border-2"
-          ref={aboutme}
-        >
-          <p className="text-4xl font-semibold">About Me</p>
-          <div>
-            <p className="text-black dark:text-white">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque
-              perspiciatis omnis eligendi nesciunt totam commodi aliquam
-              officiis nemo saepe fuga temporibus voluptatem, a rerum amet unde
-              modi aperiam asperiores non distinctio dolores facere et
-              inventore. Esse, alias velit, quia a accusamus temporibus, ducimus
-              officiis quibusdam assumenda error consectetur eligendi numquam
-              consequatur cumque minus laborum itaque ea aperiam! Recusandae ea
-              dolorem eum, excepturi architecto fugit suscipit eaque. Nemo atque
-              ipsam ipsum inventore reprehenderit ullam dicta iste officia quos
-              magni, blanditiis, mollitia culpa obcaecati temporibus expedita
-              architecto. Inventore quisquam veritatis hic assumenda, modi saepe
-              illo excepturi, fuga ea eaque expedita ipsa fugit.
-            </p>
-          </div>
-        </div>
-      </div>
-    </>
+          </Parallax>
+          <Parallax speed={10} className="hidden w-72">
+            <div>
+              <Image
+                src="/asset/device/pixel4.svg"
+                width={100}
+                height={200}
+                layout="responsive"
+              />
+            </div>
+          </Parallax>
+        </Parallax>
+      </>
+    </div>
   )
 }
 
