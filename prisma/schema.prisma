@@ -8,13 +8,14 @@ datasource db {
 }
 
 model post {
-  id            String    @id
+  id            String  @id
   author        String?
   project_name  String?
   release_date  String?
   tech_stack    String?
   content       String?
   image         String?
-  project_title String?   @unique
-  date_added    DateTime? @map("date-added") @db.Date
+  project_title String? @unique
+  github_repo   String? @map("github-repo")
+  live_preview  String?
 }

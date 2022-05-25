@@ -45,7 +45,7 @@ export default function Navbar() {
             ) : (
               <FiMoon
                 size={30}
-                className="transition group-hover:text-[#646260]"
+                className="text-[#585654] transition group-hover:text-inherit"
               />
             )}
           </button>

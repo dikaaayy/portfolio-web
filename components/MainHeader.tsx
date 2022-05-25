@@ -66,10 +66,7 @@ export default function MainHeader({ onClick }: any) {
         onClick={onClick}
       >
         <g id="triangles">
-          <g
-            id="lightGroup"
-            className="fill-[#665b51] group-hover:fill-[#b3a763] dark:fill-[#dfc742]"
-          >
+          <g id="lightGroup" className="fill-[#665b51] dark:fill-[#dfc742]">
             <path
               id="light1"
               opacity="0.8"
@@ -79,10 +76,16 @@ export default function MainHeader({ onClick }: any) {
           </g>
           <g id="darkGroup" className="fill-[#F3DB00] dark:fill-[#837669]">
             <path
+              id="dark1"
+              opacity="0.8"
+              d="M74.9231 46.915C77.1795 48.2177 77.1795 51.4746 74.9231 52.7773L34.3077 76.2266C32.0513 77.5294 29.2308 75.9009 29.2308 73.2955L29.2308 26.3968C29.2308 23.7914 32.0513 22.1629 34.3077 23.4657L74.9231 46.915Z"
+              className="-translate-x-full transition-all duration-500 ease-linear group-hover:-translate-x-3"
+            />
+            <path
               id="dark2"
               opacity="0.8"
               d="M54.6154 46.915C56.8718 48.2177 56.8718 51.4746 54.6154 52.7773L14 76.2266C11.7436 77.5294 8.92307 75.9009 8.92307 73.2955L8.92308 26.3968C8.92308 23.7914 11.7436 22.1629 14 23.4657L54.6154 46.915Z"
-              className="animate-swisher"
+              className="translate-x-0 transition-all duration-500 ease-linear group-hover:translate-x-full"
             />
           </g>
         </g>

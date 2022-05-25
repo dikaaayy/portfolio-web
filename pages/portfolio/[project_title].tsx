@@ -5,6 +5,7 @@ import { prisma } from '../../lib/prisma'
 import { RiCalendarCheckLine } from 'react-icons/ri'
 import { BsPersonCircle } from 'react-icons/bs'
 import Head from 'next/head'
+import Link from 'next/link'
 
 export async function getServerSideProps(context: any) {
   const { project_title } = context.query
@@ -35,7 +36,7 @@ export default function Detail({ post }: any) {
       <Navbar />
       <>
         <div className="bg-customLight-lightGray pb-10 pt-32 font-sanFrancisco dark:bg-customDark-darkGray">
-          <div className="mx-auto w-[85vw] space-y-5 rounded-md border-[1px] bg-customDark-darkGray px-5 py-4 text-white shadow-xl dark:bg-customDark-lightGray dark:text-black sm:w-[80vw] lg:w-[70vw] xl:w-[65vw]">
+          <div className="mx-auto w-[85vw] space-y-3 rounded-md border-[1px] bg-customDark-darkGray px-5 py-4 text-white shadow-xl dark:bg-customDark-lightGray dark:text-black sm:w-[80vw] lg:w-[70vw] xl:w-[65vw]">
             {isMounted ? (
               <Image src={images[0]} width={2532} height={1472} />
             ) : (
@@ -51,8 +52,27 @@ export default function Detail({ post }: any) {
                 <p className="font-medium">{post.release_date}</p>
               </div>
             </div>
-
-            <p className="text-3xl font-bold">{post.project_name}</p>
+            <p className="cursor-default text-3xl font-bold">
+              {post.project_name}
+            </p>
+            <div className="vertical-center gap-x-4 font-medium">
+              <Link href={post.live_preview}>
+                <a
+                  className="transition hover:text-[#575757]"
+                  target={'_blank'}
+                >
+                  Live Preview
+                </a>
+              </Link>
+              <Link href={post.github_repo}>
+                <a
+                  className="transition hover:text-[#575757]"
+                  target={'_blank'}
+                >
+                  Github Repository
+                </a>
+              </Link>
+            </div>
             <p className="select-none tracking-wider">{post.content}</p>
           </div>
         </div>
