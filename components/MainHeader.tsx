@@ -1,19 +1,27 @@
 import { BsLinkedin, BsGithub, BsGlobe } from 'react-icons/bs'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function MainHeader({ onClick }: any) {
   return (
     <main className="relative flex h-screen w-screen flex-col items-center justify-center gap-y-5 pt-20 sm:flex-row sm:gap-y-0">
       <div className="order-2 flex flex-col items-center justify-center gap-y-4 sm:order-1 md:w-1/2">
-        <div className="flex justify-center sm:w-1/3">
-          <p className="text-6xl font-semibold">
+        <div className="flex w-1/2 justify-center sm:w-1/3">
+          <p className="text-5xl font-semibold sm:text-6xl">
             Hi, I'm <span className="text-red-500">Andika Yudhistira</span>
           </p>
         </div>
       </div>
-      <div className="order-1 flex h-1/2 flex-col items-center justify-center gap-y-10 sm:order-2 sm:w-1/2">
-        <div className="h-full w-full border-2 border-blue-500 sm:w-1/2"></div>
-        <div className="selection: flex gap-x-4">
+      <div className="order-1 mb-7 flex h-1/2 flex-col items-center justify-center gap-y-3 sm:order-2 sm:mb-0 sm:w-1/2 sm:gap-y-10">
+        <div className="w-[65%] 2xl:w-1/2">
+          <Image
+            src="/asset/colored.jpg"
+            height={2930}
+            width={2930}
+            className="rounded-md"
+          />
+        </div>
+        <div className="flex select-none gap-x-4">
           <div className="group rounded-full">
             <div className="main-social-button vertical-center">
               <Link href="https://www.github.com/dikaaayy">
@@ -58,7 +66,10 @@ export default function MainHeader({ onClick }: any) {
         onClick={onClick}
       >
         <g id="triangles">
-          <g id="lightGroup" className="fill-[#665b51] dark:fill-[#dfc742]">
+          <g
+            id="lightGroup"
+            className="fill-[#665b51] group-hover:fill-[#b3a763] dark:fill-[#dfc742]"
+          >
             <path
               id="light1"
               opacity="0.8"
@@ -68,16 +79,10 @@ export default function MainHeader({ onClick }: any) {
           </g>
           <g id="darkGroup" className="fill-[#F3DB00] dark:fill-[#837669]">
             <path
-              id="dark1"
-              opacity="0.8"
-              d="M74.9231 46.915C77.1795 48.2177 77.1795 51.4746 74.9231 52.7773L34.3077 76.2266C32.0513 77.5294 29.2308 75.9009 29.2308 73.2955L29.2308 26.3968C29.2308 23.7914 32.0513 22.1629 34.3077 23.4657L74.9231 46.915Z"
-              className="-translate-x-5 opacity-0 transition-all duration-500 ease-linear group-hover:translate-x-1/2 group-hover:opacity-100"
-            />
-            <path
               id="dark2"
               opacity="0.8"
               d="M54.6154 46.915C56.8718 48.2177 56.8718 51.4746 54.6154 52.7773L14 76.2266C11.7436 77.5294 8.92307 75.9009 8.92307 73.2955L8.92308 26.3968C8.92308 23.7914 11.7436 22.1629 14 23.4657L54.6154 46.915Z"
-              className="animate-swisher group-hover:animate-none group-hover:opacity-0"
+              className="animate-swisher"
             />
           </g>
         </g>

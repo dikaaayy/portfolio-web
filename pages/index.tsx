@@ -18,7 +18,7 @@ const Home: NextPage = () => {
     })
   }
   return (
-    <div className="relative bg-customLight-lightGray pb-[20rem] text-customLight-darkGray dark:bg-customDark-darkGray dark:text-customDark-lightGray">
+    <div className="relative overflow-x-hidden bg-customLight-lightGray pb-[10rem] font-sanFrancisco text-customLight-darkGray dark:bg-customDark-darkGray dark:text-customDark-lightGray">
       <Head>
         <title>My Personal Web | Dika</title>
       </Head>
@@ -34,21 +34,16 @@ const Home: NextPage = () => {
               className="relative mx-auto w-[80vw] space-y-7 sm:mx-0 sm:w-[40%]"
               ref={aboutme}
             >
-              <p className="p-2 text-4xl font-semibold sm:p-0">About Me</p>
-              <p className="rounded-md bg-[#838383] bg-opacity-10 p-2 text-black dark:bg-white dark:bg-opacity-10 dark:text-white sm:bg-inherit sm:p-0 sm:dark:bg-inherit">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque
-                perspiciatis omnis eligendi nesciunt totam commodi aliquam
-                officiis nemo saepe fuga temporibus voluptatem, a rerum amet
-                unde modi aperiam asperiores non distinctio dolores facere et
-                inventore. Esse, alias velit, quia a accusamus temporibus,
-                ducimus officiis quibusdam assumenda error consectetur eligendi
-                numquam consequatur cumque minus laborum itaque ea aperiam!
-                Recusandae ea dolorem eum, excepturi architecto fugit suscipit
-                eaque. Nemo atque ipsam ipsum inventore reprehenderit ullam
-                dicta iste officia quos magni, blanditiis, mollitia culpa
-                obcaecati temporibus expedita architecto. Inventore quisquam
-                veritatis hic assumenda, modi saepe illo excepturi, fuga ea
-                eaque expedita ipsa fugit.
+              <p className="pr-2 text-[2.6rem] font-semibold sm:pr-0">
+                About Me
+              </p>
+              <p className="rounded-md bg-[#838383] bg-opacity-10 p-2 text-lg tracking-wider text-black dark:bg-white dark:bg-opacity-10 dark:text-white sm:bg-inherit sm:p-0 sm:dark:bg-inherit">
+                I am a Software Developer, mainly focused in Frontend
+                development, using ReactJS. Besides that, I love to explore
+                latest technology and/or framework such as NextJS and
+                TailwindCSS to ease the development process. On top of that, I
+                am also an active student at Universitas Gadjah Mada, majoring
+                in Computer Science and expected to graduate in 2024.
               </p>
             </div>
             <div className="vertical-center absolute top-10 bottom-0 left-0 right-0 -z-10 m-auto blur-sm sm:static sm:m-0 sm:w-1/3 sm:blur-none">

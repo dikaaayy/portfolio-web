@@ -4,6 +4,11 @@
 
 ::-webkit-scrollbar {
   display: none;
+  background: #1f1f1f;
+}
+::-webkit-scrollbar-thumb {
+  background: #fbf7e7;
+  border-radius: 15px;
 }
 
 ::-moz-selection {
@@ -16,13 +21,13 @@
 
 @layer components {
   .navbar-container {
-    @apply fixed top-0 z-50 flex h-20 w-screen select-none justify-between border-b-[1px] border-customLight-darkGray bg-customLight-lightGray px-10 font-medium text-customLight-darkGray dark:border-customDark-lightGray dark:bg-customDark-darkGray dark:text-customDark-lightGray  md:justify-around md:px-0;
+    @apply fixed top-0 z-50 flex h-20 w-screen select-none justify-between border-b-[1px] border-customLight-darkGray bg-customLight-lightGray px-10 font-sanFrancisco font-medium tracking-wider text-customLight-darkGray dark:border-customDark-lightGray  dark:bg-customDark-darkGray dark:text-customDark-lightGray md:justify-around md:px-0;
   }
   .navbar-button {
     @apply rounded-md px-3 py-2 text-lg transition hover:bg-[#d1d1d1] dark:hover:bg-inherit dark:hover:bg-[#2c2c2c];
   }
   .dark-mode-button {
-    @apply rounded-md bg-[#d1d1d1] p-2 dark:bg-[#2e2e2e];
+    @apply rounded-md bg-[#e6dfbd] p-2 dark:bg-[#2e2e2e];
   }
   .portfolio-container {
     @apply min-h-max bg-customLight-lightGray pb-8 text-customLight-darkGray dark:bg-customDark-darkGray dark:text-customDark-lightGray;
@@ -34,16 +39,39 @@
     @apply mx-auto grid w-[80vw] grid-cols-1 justify-items-center gap-y-10 md:grid-cols-2;
   }
   .portfolio-card {
-    @apply flex min-h-max w-[90vw] flex-col justify-start gap-y-2 overflow-hidden rounded-lg bg-customLight-darkGray pb-0 text-customLight-lightGray shadow transition duration-200 hover:scale-[1.015] dark:bg-customDark-lightGray dark:text-customLight-darkGray dark:shadow-[#5e5e5e] md:w-[90%] md:shadow-md lg:w-[85%] xl:w-[80%] 2xl:w-[90%];
+    @apply flex min-h-max w-[90vw] flex-col justify-start overflow-hidden rounded-lg bg-customLight-darkGray pb-0 text-customLight-lightGray shadow transition duration-200 hover:scale-[1.015] dark:bg-customDark-lightGray dark:text-customDark-darkGray dark:shadow-[#5e5e5e] md:w-[90%] md:shadow-md lg:w-[85%] xl:w-[80%] 2xl:w-[90%];
   }
 
   .tech-tooltip {
-    @apply absolute -top-7 -left-5 z-50 h-5 min-w-max scale-0 justify-center rounded bg-customLight-lightGray py-3 px-2 text-customLight-darkGray transition-all group-hover:scale-100 dark:bg-customDark-darkGray dark:text-customDark-lightGray;
+    @apply absolute -top-7 -left-5 z-50 h-5 min-w-max scale-0 justify-center rounded bg-customLight-lightGray py-3 px-2 tracking-wide text-customLight-darkGray transition-all group-hover:scale-100 dark:bg-customDark-darkGray dark:text-customDark-lightGray;
   }
   .vertical-center {
     @apply flex items-center;
   }
   .main-social-button {
-    @apply cursor-pointer gap-x-2 rounded-full bg-customLight-darkGray py-2 px-2 font-medium  text-white shadow  shadow-[#3a3939] transition group-hover:-translate-y-2 dark:bg-[#eeeeee] dark:text-customDark-darkGray dark:shadow-white md:px-3;
+    @apply cursor-pointer gap-x-2 rounded-full bg-customLight-darkGray py-2 px-2 font-medium tracking-wide text-white  shadow shadow-[#3a3939] transition group-hover:-translate-y-2 dark:bg-[#eeeeee] dark:text-customDark-darkGray dark:shadow-white md:px-3;
+  }
+}
+
+@layer base {
+  @font-face {
+    font-family: 'sanFrancisco';
+    font-weight: 400;
+    src: url('../fonts/sfLight.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'sanFrancisco';
+    font-weight: 500;
+    src: url('../fonts/sfRegular.otf') format('opentype');
+  }
+  @font-face {
+    font-family: 'sanFrancisco';
+    font-weight: 600;
+    src: url('../fonts/sfMedium.otf') format('opentype');
+  }
+  @font-face {
+    font-family: 'sanFrancisco';
+    font-weight: 700;
+    src: url('../fonts/sfBold.otf') format('opentype');
   }
 }

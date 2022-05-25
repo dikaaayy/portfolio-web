@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { prisma } from '../../lib/prisma'
 import Head from 'next/head'
+import { post } from '@prisma/client'
 import {
   SiNextdotjs,
   SiTailwindcss,
@@ -20,6 +21,9 @@ export async function getServerSideProps() {
       image: true,
       tech_stack: true,
       project_title: true,
+    },
+    orderBy: {
+      id: 'desc',
     },
   })
 
@@ -60,7 +64,7 @@ export default function portfolio({ posts }: any) {
     if (tech === 'ExpressJS') return <SiExpress size={18} />
   }
   return (
-    <>
+    <div className="font-sanFrancisco">
       <Head>
         <title>Past Work ✅ | Dika</title>
       </Head>
@@ -79,13 +83,14 @@ export default function portfolio({ posts }: any) {
                 href={'/portfolio/' + post.project_title}
               >
                 <a className="portfolio-card">
-                  <Image
-                    src={filterImage(post.image)}
-                    width={1920}
-                    height={1027}
-                    layout="responsive"
-                  />
-                  <div className="space-y-1 px-4 pb-2">
+                  <div className="bg-[#d1c8a6] px-10 py-2 dark:bg-[#808080]">
+                    <Image
+                      src={filterImage(post.image)}
+                      width={2532}
+                      height={1472}
+                    />
+                  </div>
+                  <div className="space-y-1 bg-[#353535] px-4 py-2 dark:bg-[#d6d6d6]">
                     <div className="flex items-end gap-x-3">
                       {techStackArr(post.tech_stack).map((tech) => {
                         return (
@@ -111,6 +116,6 @@ export default function portfolio({ posts }: any) {
           })}
         </div>
       </div>
-    </>
+    </div>
   )
 }

@@ -34,15 +34,10 @@ export default function Detail({ post }: any) {
       </Head>
       <Navbar />
       <>
-        <div className="bg-customLight-lightGray pb-10 pt-32 dark:bg-customDark-darkGray">
+        <div className="bg-customLight-lightGray pb-10 pt-32 font-sanFrancisco dark:bg-customDark-darkGray">
           <div className="mx-auto w-[85vw] space-y-5 rounded-md border-[1px] bg-customDark-darkGray px-5 py-4 text-white shadow-xl dark:bg-customDark-lightGray dark:text-black sm:w-[80vw] lg:w-[70vw] xl:w-[65vw]">
             {isMounted ? (
-              <Image
-                src={images[0]}
-                width={1920}
-                height={1027}
-                layout="responsive"
-              />
+              <Image src={images[0]} width={2532} height={1472} />
             ) : (
               <p>Image</p>
             )}
@@ -58,7 +53,7 @@ export default function Detail({ post }: any) {
             </div>
 
             <p className="text-3xl font-bold">{post.project_name}</p>
-            <p className="select-none">{post.content}</p>
+            <p className="select-none tracking-wider">{post.content}</p>
           </div>
         </div>
       </>

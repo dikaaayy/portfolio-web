@@ -8,14 +8,11 @@ import {
 } from 'react-icons/si'
 
 export default function Spin() {
-  const parallax = useParallax<HTMLDivElement>({
-    rotate: [0, 360],
-  })
+  // const parallax = useParallax<HTMLDivElement>({
+  //   rotate: [0, 360],
+  // })
   return (
-    <div
-      ref={parallax.ref}
-      className="vertical-center relative mx-auto h-48 w-48 select-none justify-center gap-1 rounded-full border-2 border-black border-opacity-10 dark:border-inherit md:h-60 md:w-60 lg:h-72 lg:w-72"
-    >
+    <div className="vertical-center relative mx-auto h-48 w-48 animate-spinner select-none justify-center gap-1 rounded-full border-2 border-black border-opacity-10 dark:border-inherit md:h-60 md:w-60 lg:h-72 lg:w-72">
       <SiReact size={100} className="text-[#61DBFB]" />
       <div className="absolute -top-8 rounded-full p-2 text-3xl text-white dark:text-black sm:bg-customLight-darkGray dark:sm:bg-white lg:p-3">
         <SiNextdotjs size={50} />

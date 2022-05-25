@@ -20,11 +20,19 @@ module.exports = {
       keyframes: {
         swish: {
           '0%': { transform: 'translateX(-50%)' },
-          '100%': { transform: 'translateX(1.5rem)' },
+          '100%': { transform: 'translateX(85%)' },
+        },
+        spins: {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
         },
       },
       animation: {
-        swisher: 'swish 2s ease-in-out infinite',
+        swisher: 'swish 2s ease-in-out infinite forwards',
+        spinner: 'spins 15s linear infinite',
+      },
+      fontFamily: {
+        sanFrancisco: 'sanFrancisco',
       },
     },
   },
