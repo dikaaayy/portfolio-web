@@ -50,15 +50,13 @@ const Home: NextPage = () => {
               <Spin />
             </div>
           </Parallax>
-          <Parallax speed={10} className="hidden w-72">
-            <div>
-              <Image
-                src="/asset/device/pixel4.svg"
-                width={100}
-                height={200}
-                layout="responsive"
-              />
-            </div>
+          <Parallax speed={10} className="w-72">
+            <Image
+              src="/asset/device/pixel4.svg"
+              width={100}
+              height={200}
+              layout="responsive"
+            />
           </Parallax>
         </Parallax>
       </>

@@ -13,8 +13,9 @@ module.exports = {
           lightGray: '#e3e3e3',
         },
         customLight: {
-          darkGray: '#3D330A',
+          darkGray: '#3e3923',
           lightGray: '#FBF7E7',
+          cream: '#e6dfbd',
         },
       },
       keyframes: {

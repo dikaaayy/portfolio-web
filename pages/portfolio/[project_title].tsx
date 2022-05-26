@@ -36,7 +36,7 @@ export default function Detail({ post }: any) {
       <Navbar />
       <>
         <div className="bg-customLight-lightGray pb-10 pt-32 font-sanFrancisco dark:bg-customDark-darkGray">
-          <div className="mx-auto w-[85vw] space-y-3 rounded-md border-[1px] bg-customDark-darkGray px-5 py-4 text-white shadow-xl dark:bg-customDark-lightGray dark:text-black sm:w-[80vw] lg:w-[70vw] xl:w-[65vw]">
+          <div className="mx-auto w-[85vw] space-y-3 rounded-md border-[1px] bg-customLight-darkGray px-5 py-4 text-white shadow-xl dark:bg-customDark-lightGray dark:text-black sm:w-[80vw] lg:w-[70vw] xl:w-[65vw]">
             {isMounted ? (
               <Image src={images[0]} width={2532} height={1472} />
             ) : (
@@ -44,7 +44,7 @@ export default function Detail({ post }: any) {
             )}
             <div className="vertical-center gap-x-6">
               <div className="vertical-center gap-x-1">
-                <BsPersonCircle size={20} className="text-black" />
+                <BsPersonCircle size={20} className="dark:text-black" />
                 <p className="font-medium">{post.author}</p>
               </div>
               <div className="vertical-center gap-x-1">
@@ -58,7 +58,7 @@ export default function Detail({ post }: any) {
             <div className="vertical-center gap-x-4 font-medium">
               <Link href={post.live_preview}>
                 <a
-                  className="transition hover:text-[#575757]"
+                  className="text-[#c9c9c9] transition hover:text-inherit dark:text-inherit dark:hover:text-[#575757]"
                   target={'_blank'}
                 >
                   Live Preview
@@ -66,7 +66,7 @@ export default function Detail({ post }: any) {
               </Link>
               <Link href={post.github_repo}>
                 <a
-                  className="transition hover:text-[#575757]"
+                  className="text-[#c9c9c9] transition hover:text-inherit dark:text-inherit dark:hover:text-[#575757]"
                   target={'_blank'}
                 >
                   Github Repository
