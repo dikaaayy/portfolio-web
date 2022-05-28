@@ -90,7 +90,7 @@ export default function portfolio({ posts }: any) {
                       height={1472}
                     />
                   </div>
-                  <div className="space-y-1 bg-[#353535] px-4 py-2 dark:bg-[#d6d6d6]">
+                  <div className="space-y-1 bg-[#706b56] px-4 py-2 dark:bg-[#d6d6d6]">
                     <div className="flex items-end gap-x-3">
                       {techStackArr(post.tech_stack).map((tech) => {
                         return (

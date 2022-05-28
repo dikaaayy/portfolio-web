@@ -11,7 +11,7 @@ const Home: NextPage = () => {
   const aboutme = useRef<HTMLDivElement>(null)
 
   const goToRef = () => {
-    aboutme.current?.scrollIntoView({
+    aboutme?.current?.scrollIntoView({
       behavior: 'smooth',
       block: 'nearest',
       inline: 'start',
@@ -25,40 +25,28 @@ const Home: NextPage = () => {
       <Navbar />
       <>
         <MainHeader onClick={goToRef} />
-        <Parallax className="mt-20 lg:mt-48">
-          <Parallax
-            speed={0}
-            className="relative sm:static sm:flex sm:justify-evenly"
-          >
-            <div
-              className="relative mx-auto w-[80vw] space-y-7 sm:mx-0 sm:w-[40%]"
-              ref={aboutme}
-            >
-              <p className="pr-2 text-[2.6rem] font-semibold sm:pr-0">
-                About Me
-              </p>
-              <p className="rounded-md bg-[#838383] bg-opacity-10 p-2 text-lg tracking-wider text-black dark:bg-white dark:bg-opacity-10 dark:text-white sm:bg-inherit sm:p-0 sm:dark:bg-inherit">
-                I am a Software Developer, mainly focused in Frontend
-                development, using ReactJS. Besides that, I love to explore
-                latest technology and/or framework such as NextJS and
-                TailwindCSS to ease the development process. On top of that, I
-                am also an active student at Universitas Gadjah Mada, majoring
-                in Computer Science and expected to graduate in 2024.
-              </p>
-            </div>
-            <div className="vertical-center absolute top-10 bottom-0 left-0 right-0 -z-10 m-auto blur-sm sm:static sm:m-0 sm:w-1/3 sm:blur-none">
-              <Spin />
-            </div>
-          </Parallax>
-          <Parallax speed={10} className="w-72">
-            <Image
-              src="/asset/device/pixel4.svg"
-              width={100}
-              height={200}
-              layout="responsive"
-            />
-          </Parallax>
-        </Parallax>
+        <div
+          className="relative mt-20 sm:static sm:flex sm:justify-evenly lg:mt-48 lg:mb-20"
+          ref={aboutme}
+        >
+          <div className="relative mx-auto w-[80vw] space-y-7 sm:mx-0 sm:w-[40%]">
+            <p className="pr-2 text-[2.6rem] font-semibold sm:pr-0">About Me</p>
+            <p className="rounded-md bg-[#838383] bg-opacity-10 p-2 text-lg tracking-wider text-black dark:bg-white dark:bg-opacity-10 dark:text-white sm:bg-inherit sm:p-0 sm:dark:bg-inherit">
+              I am a Software Developer, mainly focused in Frontend development,
+              using ReactJS. Besides that, I love to explore latest technology
+              and/or framework such as NextJS and TailwindCSS to ease the
+              development process. On top of that, I am also an active student
+              at Universitas Gadjah Mada, majoring in Computer Science and
+              expected to graduate in 2024.
+            </p>
+          </div>
+          <div className="vertical-center absolute top-10 bottom-0 left-0 right-0  m-auto blur-sm sm:static sm:m-0 sm:w-1/3 sm:blur-none">
+            <Spin />
+          </div>
+        </div>
+        <div className="mx-auto w-1/2 border-2 border-black text-center text-3xl font-semibold">
+          See my latest work here!
+        </div>
       </>
     </div>
   )
