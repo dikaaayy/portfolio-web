@@ -2,10 +2,9 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import { useRef } from 'react'
 import Navbar from '../components/Navbar'
-import { Parallax } from 'react-scroll-parallax'
-import Image from 'next/image'
 import MainHeader from '../components/MainHeader'
 import Spin from '../components/Spin'
+import Link from 'next/link'
 
 const Home: NextPage = () => {
   const aboutme = useRef<HTMLDivElement>(null)
@@ -26,7 +25,7 @@ const Home: NextPage = () => {
       <>
         <MainHeader onClick={goToRef} />
         <div
-          className="relative mt-20 sm:static sm:flex sm:justify-evenly lg:mt-48 lg:mb-20"
+          className="relative mt-20 mb-20 sm:static sm:flex sm:justify-evenly md:mb-24 lg:mt-48"
           ref={aboutme}
         >
           <div className="relative mx-auto w-[80vw] space-y-7 sm:mx-0 sm:w-[40%]">
@@ -40,12 +39,14 @@ const Home: NextPage = () => {
               expected to graduate in 2024.
             </p>
           </div>
-          <div className="vertical-center absolute top-10 bottom-0 left-0 right-0  m-auto blur-sm sm:static sm:m-0 sm:w-1/3 sm:blur-none">
+          <div className="vertical-center absolute top-10 bottom-0 left-0 right-0 m-auto blur-sm sm:static sm:m-0 sm:w-1/3 sm:blur-none">
             <Spin />
           </div>
         </div>
-        <div className="mx-auto w-1/2 border-2 border-black text-center text-3xl font-semibold">
-          See my latest work here!
+        <div className="mx-auto w-1/2 animate-bouncy text-center text-3xl font-medium sm:mx-0">
+          <Link href="/portfolio">
+            <a>See my latest work here!</a>
+          </Link>
         </div>
       </>
     </div>

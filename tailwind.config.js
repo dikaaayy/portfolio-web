@@ -27,10 +27,15 @@ module.exports = {
           '0%': { transform: 'rotate(0deg)' },
           '100%': { transform: 'rotate(360deg)' },
         },
+        bounced: {
+          '0%, 100%': { transform: 'translateY(30%)' },
+          '50%': { transform: 'translateY(0)' },
+        },
       },
       animation: {
         swisher: 'swish 2s ease-in-out infinite forwards',
         spinner: 'spins 15s linear infinite',
+        bouncy: 'bounced 1.5s linear infinite',
       },
       fontFamily: {
         sanFrancisco: 'sanFrancisco',
