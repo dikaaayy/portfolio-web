@@ -1,4 +1,3 @@
-import { useParallax } from 'react-scroll-parallax'
 import {
   SiNextdotjs,
   SiTailwindcss,
@@ -8,9 +7,6 @@ import {
 } from 'react-icons/si'
 
 export default function Spin() {
-  // const parallax = useParallax<HTMLDivElement>({
-  //   rotate: [0, 360],
-  // })
   return (
     <div className="vertical-center relative mx-auto h-48 w-48 animate-spinner select-none justify-center gap-1 rounded-full border-2 border-black border-opacity-10 dark:border-inherit md:h-60 md:w-60 lg:h-72 lg:w-72">
       <SiReact size={100} className="text-[#61DBFB]" />

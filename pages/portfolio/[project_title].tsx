@@ -14,6 +14,11 @@ export async function getServerSideProps(context: any) {
       project_title,
     },
   })
+  if (!post) {
+    return {
+      notFound: true,
+    }
+  }
   return { props: { post } }
 }
 export default function Detail({ post }: any) {
@@ -36,7 +41,7 @@ export default function Detail({ post }: any) {
       <Navbar />
       <>
         <div className="bg-customLight-lightGray pb-10 pt-32 font-sanFrancisco dark:bg-customDark-darkGray">
-          <div className="mx-auto w-[85vw] space-y-3 overflow-hidden rounded-md border-[1px] bg-[#d1c8a6] text-white shadow-xl dark:bg-customDark-lightGray dark:text-black sm:w-[80vw] lg:w-[70vw] xl:w-[65vw]">
+          <div className="mx-auto w-[85vw] space-y-3 overflow-hidden rounded-md bg-[#d1c8a6] text-white shadow-xl dark:bg-[#808080] dark:text-black sm:w-[80vw] lg:w-[70vw] xl:w-[65vw]">
             <div className="px-5 pt-3">
               {isMounted ? (
                 <Image src={images[0]} width={2532} height={1472} />
@@ -44,7 +49,7 @@ export default function Detail({ post }: any) {
                 <p>Image</p>
               )}
             </div>
-            <div className="space-y-3 bg-[#706b56] px-5 py-3">
+            <div className="space-y-3 bg-[#706b56] px-5 py-3 dark:bg-[#d6d6d6]">
               <div className="vertical-center gap-x-6">
                 <div className="vertical-center gap-x-1">
                   <BsPersonCircle size={20} className="dark:text-black" />

@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import { prisma } from '../../lib/prisma'
 import Head from 'next/head'
-import { post } from '@prisma/client'
 import {
   SiNextdotjs,
   SiTailwindcss,

@@ -20,8 +20,8 @@ module.exports = {
       },
       keyframes: {
         swish: {
-          '0%': { transform: 'translateX(-50%)' },
-          '100%': { transform: 'translateX(85%)' },
+          '0%': { opacity: 0, transform: 'translateX(200%)' },
+          '100%': { opacity: 1, transform: 'translateY(0%)' },
         },
         spins: {
           '0%': { transform: 'rotate(0deg)' },
@@ -33,7 +33,7 @@ module.exports = {
         },
       },
       animation: {
-        swisher: 'swish 2s ease-in-out infinite forwards',
+        swisher: 'swish 0.5s ease-in-out forwards',
         spinner: 'spins 15s linear infinite',
         bouncy: 'bounced 1.5s linear infinite',
       },
