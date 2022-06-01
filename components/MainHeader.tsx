@@ -65,7 +65,7 @@ export default function MainHeader({ onClick }: any) {
           </div>
         </div>
       </div>
-      {isOpen && <p className="fixed animate-swisher">test</p>}
+      {/* {isOpen && <p className="fixed animate-swisher">test</p>} */}
       <svg
         width="120"
         height="100"

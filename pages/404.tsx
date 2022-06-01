@@ -14,13 +14,13 @@ export default function Page() {
     } else {
       setTimeout(() => {
         router.push('/')
-      }, 1000)
+      }, 400)
     }
   }, [time])
   return (
     <>
       <Head>
-        <title>Page not found!</title>
+        <title>Page not found! | Dika</title>
       </Head>
       <Navbar />
       <div className="flex h-screen w-screen flex-col items-center justify-center space-y-10 bg-customLight-lightGray dark:bg-customDark-darkGray">
