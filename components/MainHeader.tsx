@@ -5,7 +5,6 @@ import { useState } from 'react'
 
 export default function MainHeader({ onClick }: any) {
   const [isOpen, setIsOpen] = useState(false)
-  const pointerHandler = () => {}
   return (
     <main className="relative flex h-screen w-screen select-none flex-col items-center justify-center gap-y-5 pt-20 sm:flex-row sm:gap-y-0">
       <div className="order-2 flex flex-col items-center justify-center gap-y-4 sm:order-1 md:w-1/2">
@@ -22,12 +21,6 @@ export default function MainHeader({ onClick }: any) {
             height={2930}
             width={2930}
             className="rounded-md"
-            onPointerEnter={() => {
-              setIsOpen(true)
-            }}
-            onPointerLeave={() => {
-              setIsOpen(false)
-            }}
           />
         </div>
         <div className="flex gap-x-4">
@@ -65,7 +58,6 @@ export default function MainHeader({ onClick }: any) {
           </div>
         </div>
       </div>
-      {/* {isOpen && <p className="fixed animate-swisher">test</p>} */}
       <svg
         width="120"
         height="100"
