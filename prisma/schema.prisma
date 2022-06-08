@@ -18,6 +18,14 @@ model post {
   project_title String? @unique
   github_repo   String? @map("github-repo")
   live_preview  String?
+  comments Comment[]
+}
+
+model Comment{
+  id Int @id @default(autoincrement())
+  comment String?
+  postId String?
+  post post? @relation(fields: [postId], references: [id])
 }
 
 model Account {

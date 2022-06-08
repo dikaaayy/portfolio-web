@@ -77,7 +77,7 @@ const Home: NextPage = () => {
         <div className="grid grid-cols-2 justify-items-center gap-y-7 gap-x-5">
           {posts.map((post, i) => {
             return (
-              <Link href={'/portfolio'}>
+              <Link href={'/portfolio'} key={i}>
                 <a
                   className="group w-[75%] rounded-lg border-[1px] border-customLight-darkGray p-2 dark:border-customDark-lightGray"
                   key={i}
