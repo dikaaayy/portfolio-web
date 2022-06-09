@@ -3,6 +3,7 @@ import NextAuth from 'next-auth'
 import GithubProvider from 'next-auth/providers/github'
 import { prisma } from '../../../lib/prisma'
 import { PrismaAdapter } from '@next-auth/prisma-adapter'
+import GoogleProvider from 'next-auth/providers/google'
 
 export default (req: NextApiRequest, res: NextApiResponse) =>
   NextAuth(req, res, {
@@ -11,6 +12,10 @@ export default (req: NextApiRequest, res: NextApiResponse) =>
       GithubProvider({
         clientId: process.env.GITHUB_ID,
         clientSecret: process.env.GITHUB_SECRET,
+      }),
+      GoogleProvider({
+        clientId: process.env.GOOGLE_CLIENT_ID,
+        clientSecret: process.env.GOOGLE_CLIENT_SECRET,
       }),
       // ...add more providers here
     ],
