@@ -7,7 +7,9 @@ export default function login() {
     <div className="w-1/2 bg-slate-700">
       {session ? (
         <>
-          <p>you are logged in as {session?.user?.name}</p>
+          <p className="font-semibold">
+            you are logged in as {session?.user?.name}
+          </p>
           <Image
             src={session?.user?.image || ''}
             alt="img"
