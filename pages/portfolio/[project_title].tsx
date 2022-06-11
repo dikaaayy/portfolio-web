@@ -24,6 +24,7 @@ export async function getServerSideProps(context: any) {
 export default function Detail({ post }: any) {
   const [images, setImages] = useState<string[]>([])
   const [isMounted, setIsMounted] = useState(false)
+  const [isLoginModalOpened, setIsLoginModalOpened] = useState(false)
 
   useEffect(() => {
     const filterImage = (images: String) => {
@@ -84,6 +85,7 @@ export default function Detail({ post }: any) {
               <p className="select-none tracking-wider">{post.content}</p>
             </div>
           </div>
+          <p>Test</p>
         </div>
       </>
     </>
