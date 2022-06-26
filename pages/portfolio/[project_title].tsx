@@ -16,19 +16,27 @@ export async function getServerSideProps(context: any) {
     where: {
       project_title,
     },
+    include: {
+      comments: {
+        include: {
+          user: true,
+        },
+      },
+    },
   })
   if (!post) {
     return {
       notFound: true,
     }
   }
-  return { props: { post } }
+  return { props: { post: JSON.parse(JSON.stringify(post)) } }
 }
 export default function Detail({ post }: any) {
   const [images, setImages] = useState<string[]>([])
   const [isMounted, setIsMounted] = useState(false)
   const [isLoginModalOpened, setIsLoginModalOpened] = useState<any>(false)
   const { data: session } = useSession()
+  // console.log(post)
 
   useEffect(() => {
     const filterImage = (images: String) => {
@@ -89,24 +97,16 @@ export default function Detail({ post }: any) {
               <p className="select-none tracking-wider">{post.content}</p>
             </div>
           </div>
-          {!session ? (
-            <>
-              <Comment
-                session={session}
-                openLogin={() => setIsLoginModalOpened(true)}
-              />
-              {isLoginModalOpened && (
-                <Login
-                  closeModal={() => {
-                    console.log('tutup')
-                    setIsLoginModalOpened(false)
-                  }}
-                />
-              )}
-            </>
-          ) : (
-            <Comment />
-          )}
+          <>
+            <Comment
+              session={session}
+              openLogin={() => setIsLoginModalOpened(true)}
+              comments={post.comments}
+            />
+            {!session && isLoginModalOpened && (
+              <Login closeModal={() => setIsLoginModalOpened(false)} />
+            )}
+          </>
         </div>
       </>
     </>

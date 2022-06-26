@@ -25,6 +25,9 @@ model Comment{
   id Int @id @default(autoincrement())
   comment String?
   postId String?
+  userID String?
+  commentDate DateTime?
+  user User? @relation(fields: [userID], references: [id])
   post post? @relation(fields: [postId], references: [id])
 }
 
@@ -63,6 +66,7 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
+  comment  Comment[]
 }
 
 model VerificationToken {

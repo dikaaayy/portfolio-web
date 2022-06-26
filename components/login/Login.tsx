@@ -27,9 +27,11 @@ export default function Login({ closeModal }: any) {
           onClick={(e) => {
             e.stopPropagation()
           }}
-          className="flex h-1/2 w-1/2 cursor-default flex-col items-center justify-center space-y-5 rounded-md bg-[#d1c8a6] dark:bg-[#808080]"
+          className="flex h-[60%] w-[80%] cursor-default flex-col items-center justify-center space-y-5 rounded-md bg-[#d1c8a6] dark:bg-[#808080] sm:h-1/2 sm:w-1/2"
         >
-          <p className="text-3xl font-medium">You are not logged in!</p>
+          <p className="text-2xl font-medium sm:text-3xl">
+            You are not logged in!
+          </p>
           <div className="flex flex-col space-y-2">
             <button
               className="flex items-center space-x-2 border-[1px] py-2 px-5 font-medium"
