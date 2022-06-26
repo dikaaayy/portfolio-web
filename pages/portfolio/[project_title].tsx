@@ -6,6 +6,9 @@ import { RiCalendarCheckLine } from 'react-icons/ri'
 import { BsPersonCircle } from 'react-icons/bs'
 import Head from 'next/head'
 import Link from 'next/link'
+import Comment from '../../components/Comment'
+import { useSession } from 'next-auth/react'
+import Login from '../../components/login/Login'
 
 export async function getServerSideProps(context: any) {
   const { project_title } = context.query
@@ -24,7 +27,8 @@ export async function getServerSideProps(context: any) {
 export default function Detail({ post }: any) {
   const [images, setImages] = useState<string[]>([])
   const [isMounted, setIsMounted] = useState(false)
-  const [isLoginModalOpened, setIsLoginModalOpened] = useState(false)
+  const [isLoginModalOpened, setIsLoginModalOpened] = useState<any>(false)
+  const { data: session } = useSession()
 
   useEffect(() => {
     const filterImage = (images: String) => {
@@ -85,24 +89,24 @@ export default function Detail({ post }: any) {
               <p className="select-none tracking-wider">{post.content}</p>
             </div>
           </div>
-          <div className="mx-auto mt-10 w-[85%] rounded-md border-2 bg-[#d1c8a6] p-5 text-white shadow-xl dark:bg-[#d6d6d6] dark:text-black sm:w-[80vw] lg:w-[70vw] xl:w-[65%]">
-            <p className="text-lg font-medium">Leave Your Comment below!</p>
-            <form className="mt-5 flex flex-col">
-              <label htmlFor="comment">Write here</label>
-              <textarea
-                id="comment"
-                className="resize rounded bg-white p-2 outline-none"
-                maxLength={400}
-                spellCheck={false}
+          {!session ? (
+            <>
+              <Comment
+                session={session}
+                openLogin={() => setIsLoginModalOpened(true)}
               />
-              <button
-                type="submit"
-                className="mt-2 w-1/5 self-end rounded-md border-2 py-2"
-              >
-                Post
-              </button>
-            </form>
-          </div>
+              {isLoginModalOpened && (
+                <Login
+                  closeModal={() => {
+                    console.log('tutup')
+                    setIsLoginModalOpened(false)
+                  }}
+                />
+              )}
+            </>
+          ) : (
+            <Comment />
+          )}
         </div>
       </>
     </>

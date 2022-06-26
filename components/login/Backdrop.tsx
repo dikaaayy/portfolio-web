@@ -1,7 +1,7 @@
 export default function Backdrop({ children, onClick }: any) {
   return (
     <div
-      className="fixed h-full w-full bg-black bg-opacity-50"
+      className="fixed top-0 z-50 flex h-full w-full items-center justify-center bg-black bg-opacity-50"
       onClick={onClick}
     >
       {children}
