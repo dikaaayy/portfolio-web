@@ -7,11 +7,13 @@ import { BsPersonCircle } from 'react-icons/bs'
 import Head from 'next/head'
 import Link from 'next/link'
 import Comment from '../../components/Comment'
-import { useSession } from 'next-auth/react'
+import { getSession, useSession } from 'next-auth/react'
 import Login from '../../components/login/Login'
 
 export async function getServerSideProps(context: any) {
   const { project_title } = context.query
+  const session = await getSession(context)
+  let user
   const post = await prisma.post.findUnique({
     where: {
       project_title,
@@ -21,22 +23,36 @@ export async function getServerSideProps(context: any) {
         include: {
           user: true,
         },
+        orderBy: {
+          commentDate: 'asc',
+        },
       },
     },
   })
+  if (session) {
+    user = await prisma.user.findUnique({
+      where: {
+        email: session?.user!.email!,
+      },
+    })
+  } else {
+    user = null
+  }
+  // console.log(session)
+  // console.log('ini abis sesi')
   if (!post) {
     return {
       notFound: true,
     }
   }
-  return { props: { post: JSON.parse(JSON.stringify(post)) } }
+  return { props: { post: JSON.parse(JSON.stringify(post)), user } }
 }
-export default function Detail({ post }: any) {
+export default function Detail({ post, user }: any) {
   const [images, setImages] = useState<string[]>([])
   const [isMounted, setIsMounted] = useState(false)
   const [isLoginModalOpened, setIsLoginModalOpened] = useState<any>(false)
   const { data: session } = useSession()
-  // console.log(post)
+  // console.log(user)
 
   useEffect(() => {
     const filterImage = (images: String) => {
@@ -101,7 +117,9 @@ export default function Detail({ post }: any) {
             <Comment
               session={session}
               openLogin={() => setIsLoginModalOpened(true)}
-              comments={post.comments}
+              comments={post?.comments}
+              postId={post?.id}
+              userID={user?.id}
             />
             {!session && isLoginModalOpened && (
               <Login closeModal={() => setIsLoginModalOpened(false)} />
