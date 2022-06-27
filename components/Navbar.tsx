@@ -1,11 +1,20 @@
 import Link from 'next/link'
-import React from 'react'
-import { FiSun, FiMoon } from 'react-icons/fi'
+import React, { useState, useRef, useEffect } from 'react'
+import { FiSun, FiMoon, FiChevronDown } from 'react-icons/fi'
+import { BsPersonCircle } from 'react-icons/bs'
+import { MdClose } from 'react-icons/md'
 import { useTheme } from 'next-themes'
 import Head from 'next/head'
+import { useSession, signOut } from 'next-auth/react'
+import Image from 'next/image'
+import Login from './login/Login'
 
 export default function Navbar() {
   const { theme, setTheme } = useTheme()
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+  const [isLoginModalOpened, setIsLoginModalOpened] = useState<any>(false)
+  const { data: session } = useSession()
+  const ref = useRef<HTMLButtonElement>(null)
 
   const darkHandler = () => {
     if (theme === 'dark') {
@@ -14,6 +23,19 @@ export default function Navbar() {
       setTheme('dark')
     }
   }
+  useEffect(() => {
+    const checkIfClickedOutside = (e: any) => {
+      if (isDropdownOpen && !ref?.current!.contains(e.target)) {
+        setIsDropdownOpen(false)
+      } else {
+        return
+      }
+    }
+    document.addEventListener('click', checkIfClickedOutside)
+    return () => {
+      document.removeEventListener('click', checkIfClickedOutside)
+    }
+  }, [isDropdownOpen])
 
   return (
     <>
@@ -24,7 +46,7 @@ export default function Navbar() {
           <link rel="icon" href="/asset/sun.svg" />
         )}
       </Head>
-      <div className="navbar-container">
+      <div className="navbar-container animate-fader">
         <div className="vertical-center gap-x-10">
           <Link href="/">
             <a className="navbar-button">Home</a>
@@ -33,7 +55,7 @@ export default function Navbar() {
             <a className="navbar-button">Portfolio</a>
           </Link>
         </div>
-        <div className="vertical-center">
+        <div className="vertical-center space-x-5">
           <button className="dark-mode-button group" onClick={darkHandler}>
             {process.browser ? (
               theme === 'dark' ? (
@@ -46,8 +68,57 @@ export default function Navbar() {
               )
             ) : null}
           </button>
+          <button
+            className="vertical-center relative"
+            onClick={() => {
+              setIsDropdownOpen(!isDropdownOpen)
+            }}
+            ref={ref}
+          >
+            {isDropdownOpen ? (
+              <>
+                <MdClose className="animate-fader" size={40} />
+                <div className="absolute top-10 -left-4 animate-fadein cursor-default rounded-md bg-[#a1a1a1]">
+                  {session ? (
+                    <p
+                      onClick={() => signOut()}
+                      className="cursor-pointer px-4 py-2"
+                    >
+                      Logout
+                    </p>
+                  ) : (
+                    <>
+                      <p
+                        className="cursor-pointer px-4 py-2"
+                        onClick={() => setIsLoginModalOpened(true)}
+                      >
+                        Login
+                      </p>
+                    </>
+                  )}
+                </div>
+              </>
+            ) : session ? (
+              <>
+                <Image
+                  src={session?.user?.image!}
+                  width={40}
+                  height={40}
+                  className="animate-fader rounded-full"
+                  layout="fixed"
+                />
+              </>
+            ) : (
+              <>
+                <BsPersonCircle className="animate-fader" size={40} />
+              </>
+            )}
+          </button>
         </div>
       </div>
+      {isLoginModalOpened && (
+        <Login closeModal={() => setIsLoginModalOpened(false)} />
+      )}
     </>
   )
 }

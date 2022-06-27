@@ -77,7 +77,7 @@ export default function Comment({
         </button>
       </form>
       <div className="mt-7">
-        <p className="mb-5 text-2xl font-medium">Comments</p>
+        <p className="mb-5 text-2xl font-medium">Comment</p>
         <div className="flex flex-col space-y-3">
           {commentList.map((comment: any, i: any) => {
             return (
