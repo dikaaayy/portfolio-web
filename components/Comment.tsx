@@ -70,7 +70,7 @@ export default function Comment({
         />
         <button
           type="submit"
-          className="mt-2 w-1/5 self-end rounded-md bg-[#505050] py-2 text-customDark-lightGray transition hover:bg-[#585858]"
+          className="mt-2 w-1/5 self-end rounded-md bg-[#505050] py-2 text-customDark-lightGray transition hover:bg-[#585858] disabled:cursor-not-allowed disabled:hover:bg-[#505050]"
           disabled={userComment === ''}
         >
           Post

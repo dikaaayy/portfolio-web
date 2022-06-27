@@ -37,6 +37,10 @@ export default function Navbar() {
     }
   }, [isDropdownOpen])
 
+  useEffect(() => {
+    document.body.style.overflow = isLoginModalOpened ? 'hidden' : 'scroll'
+  }, [isLoginModalOpened])
+
   return (
     <>
       <Head>
@@ -106,7 +110,10 @@ export default function Navbar() {
                     <>
                       <p
                         className="cursor-pointer px-4 py-2"
-                        onClick={() => setIsLoginModalOpened(true)}
+                        onClick={() => {
+                          setIsLoginModalOpened(true)
+                          console.log('hidden')
+                        }}
                       >
                         Login
                       </p>
@@ -135,7 +142,11 @@ export default function Navbar() {
         </div>
       </div>
       {isLoginModalOpened && (
-        <Login closeModal={() => setIsLoginModalOpened(false)} />
+        <Login
+          closeModal={() => {
+            setIsLoginModalOpened(false)
+          }}
+        />
       )}
     </>
   )

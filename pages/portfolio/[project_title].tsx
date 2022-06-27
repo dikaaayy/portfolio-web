@@ -62,6 +62,10 @@ export default function Detail({ post, user }: any) {
     setImages(filterImage(post.image))
     setIsMounted(true)
   }, [])
+
+  useEffect(() => {
+    document.body.style.overflow = isLoginModalOpened ? 'hidden' : 'auto'
+  }, [isLoginModalOpened])
   return (
     <>
       <Head>
