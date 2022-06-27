@@ -13,7 +13,7 @@ export default function Login({ closeModal }: any) {
           onClick={(e) => {
             e.stopPropagation()
           }}
-          className="flex h-[60%] w-[80%] cursor-default flex-col items-center justify-center space-y-5 rounded-md bg-[#d1c8a6] dark:bg-[#808080] sm:h-1/2 sm:w-1/2"
+          className="relative flex h-[60%] w-[80%] cursor-default flex-col items-center justify-center space-y-5 rounded-md bg-[#d1c8a6] dark:bg-[#808080] sm:h-1/2 sm:w-1/2"
         >
           <p className="text-2xl font-medium text-customLight-darkGray dark:text-inherit sm:text-3xl">
             You are currently not logged in!
@@ -38,6 +38,9 @@ export default function Login({ closeModal }: any) {
               <FaGithub size={40} />
             </button>
           </div>
+          <button className="absolute bottom-5" onClick={closeModal}>
+            Cancel
+          </button>
         </div>
       )}
     </Backdrop>

@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import React, { useState, useRef, useEffect } from 'react'
-import { FiSun, FiMoon, FiChevronDown } from 'react-icons/fi'
+import { FiSun, FiMoon, FiChevronDown, FiChevronUp } from 'react-icons/fi'
 import { BsPersonCircle } from 'react-icons/bs'
 import { MdClose } from 'react-icons/md'
 import { useTheme } from 'next-themes'
@@ -46,7 +46,7 @@ export default function Navbar() {
           <link rel="icon" href="/asset/sun.svg" />
         )}
       </Head>
-      <div className="navbar-container animate-fader">
+      <div className="navbar-container">
         <div className="vertical-center gap-x-10">
           <Link href="/">
             <a className="navbar-button">Home</a>
@@ -77,8 +77,24 @@ export default function Navbar() {
           >
             {isDropdownOpen ? (
               <>
-                <MdClose className="animate-fader" size={40} />
-                <div className="absolute top-10 -left-4 animate-fadein cursor-default rounded-md bg-[#a1a1a1]">
+                {session ? (
+                  <>
+                    <Image
+                      src={session?.user?.image!}
+                      width={40}
+                      height={40}
+                      className="animate-fader rounded-full"
+                      layout="fixed"
+                    />
+                    <FiChevronUp className="animate-fader" size={30} />
+                  </>
+                ) : (
+                  <>
+                    <BsPersonCircle className="animate-fader" size={40} />
+                    <FiChevronUp className="animate-fader" size={30} />
+                  </>
+                )}
+                <div className="absolute top-12 -left-0 animate-fadein cursor-default rounded-md bg-[#a1a1a1]">
                   {session ? (
                     <p
                       onClick={() => signOut()}
@@ -107,10 +123,12 @@ export default function Navbar() {
                   className="animate-fader rounded-full"
                   layout="fixed"
                 />
+                <FiChevronDown className="animate-fader" size={30} />
               </>
             ) : (
               <>
                 <BsPersonCircle className="animate-fader" size={40} />
+                <FiChevronDown className="animate-fader" size={30} />
               </>
             )}
           </button>

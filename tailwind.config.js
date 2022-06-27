@@ -44,7 +44,7 @@ module.exports = {
         swisher: 'swish 0.5s ease-in-out forwards',
         spinner: 'spins 15s linear infinite',
         bouncy: 'bounced 1.5s linear infinite',
-        fader: 'fade 0.15s ease-in-out',
+        fader: 'fade 0.5s ease-in-out',
         fadein: 'fadeIn 0.3s ease-in-out',
       },
       fontFamily: {
