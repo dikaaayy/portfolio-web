@@ -54,7 +54,7 @@ module.exports = {
         bouncy: 'bounced 1.5s linear infinite',
         fader: 'fade 0.5s ease-in-out',
         fadein: 'fadeIn 0.3s ease-in-out',
-        fadeToast: 'fadeInToast 0.4s, fadeOutToast 0.25s 2.75s',
+        fadeToast: 'fadeInToast 0.3s, fadeOutToast 0.25s 2.75s',
       },
       fontFamily: {
         sanFrancisco: 'sanFrancisco',

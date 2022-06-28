@@ -14,7 +14,7 @@ const Toast = forwardRef(({ message }: any, ref: any) => {
 
   return (
     <div
-      className={`fixed top-24 right-3 z-[100] animate-fadeToast select-none rounded-md bg-green-500 px-20 py-4 font-medium tracking-wide text-white dark:bg-green-800 ${
+      className={`fixed top-24 right-3 z-[100] animate-fadeToast select-none rounded-md bg-green-500 px-20 py-4 text-lg font-medium tracking-wide text-white dark:bg-green-800 dark:text-[#eaeaea] ${
         show ? '' : 'hidden'
       }`}
     >
