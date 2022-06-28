@@ -72,14 +72,6 @@ export default function Detail({ post, user }: any) {
     document.body.style.overflow = isLoginModalOpened ? 'hidden' : 'auto'
   }, [isLoginModalOpened])
 
-  const textToElement = (text: any) => {
-    const result = text.replace(/\"/g, '')
-    // console.log(result)
-    return result
-  }
-
-  console.log(textToElement(post.content))
-
   return (
     <>
       <Head>
@@ -131,7 +123,7 @@ export default function Detail({ post, user }: any) {
               <div
                 className="cursor-default text-justify text-[1.1rem] tracking-wide first-letter:float-left first-letter:mr-3 first-letter:text-6xl first-letter:font-semibold sm:text-lg sm:first-letter:text-7xl"
                 ref={contentRef}
-              ></div>
+              />
             </div>
           </div>
           <>
