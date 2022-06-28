@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import Navbar from '../../components/Navbar'
 import { prisma } from '../../lib/prisma'
 import { RiCalendarCheckLine } from 'react-icons/ri'
@@ -9,6 +9,7 @@ import Link from 'next/link'
 import Comment from '../../components/Comment'
 import { getSession, useSession } from 'next-auth/react'
 import Login from '../../components/login/Login'
+import Toast from '../../components/Toast'
 
 export async function getServerSideProps(context: any) {
   const { project_title } = context.query
@@ -66,6 +67,7 @@ export default function Detail({ post, user }: any) {
   useEffect(() => {
     document.body.style.overflow = isLoginModalOpened ? 'hidden' : 'auto'
   }, [isLoginModalOpened])
+
   return (
     <>
       <Head>
@@ -114,7 +116,9 @@ export default function Detail({ post, user }: any) {
                   </a>
                 </Link>
               </div>
-              <p className="select-none tracking-wider">{post.content}</p>
+              <p className="select-none text-justify text-[1.1rem] tracking-wide first-letter:float-left first-letter:mr-3 first-letter:text-6xl first-letter:font-semibold sm:text-lg sm:first-letter:text-7xl">
+                {post.content}
+              </p>
             </div>
           </div>
           <>

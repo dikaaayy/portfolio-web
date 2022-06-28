@@ -87,18 +87,18 @@ export default function Navbar() {
                       src={session?.user?.image!}
                       width={40}
                       height={40}
-                      className="animate-fader rounded-full"
+                      className="rounded-full"
                       layout="fixed"
                     />
                     <FiChevronUp className="animate-fader" size={30} />
                   </>
                 ) : (
                   <>
-                    <BsPersonCircle className="animate-fader" size={40} />
+                    <BsPersonCircle size={40} />
                     <FiChevronUp className="animate-fader" size={30} />
                   </>
                 )}
-                <div className="absolute top-12 -left-0 animate-fadein cursor-default rounded-md bg-[#a1a1a1]">
+                <div className="absolute top-12 -left-0 animate-fadein cursor-default rounded-md bg-[#b1a784] text-white dark:bg-[#c7c7c7] dark:text-black">
                   {session ? (
                     <p
                       onClick={() => signOut()}
@@ -127,14 +127,14 @@ export default function Navbar() {
                   src={session?.user?.image!}
                   width={40}
                   height={40}
-                  className="animate-fader rounded-full"
+                  className="rounded-full"
                   layout="fixed"
                 />
                 <FiChevronDown className="animate-fader" size={30} />
               </>
             ) : (
               <>
-                <BsPersonCircle className="animate-fader" size={40} />
+                <BsPersonCircle size={40} />
                 <FiChevronDown className="animate-fader" size={30} />
               </>
             )}
