@@ -16,6 +16,7 @@ const Home: NextPage = () => {
       inline: 'start',
     })
   }
+
   return (
     <div className="relative overflow-x-hidden bg-customLight-lightGray pb-[10rem] font-sanFrancisco text-customLight-darkGray dark:bg-customDark-darkGray dark:text-customDark-lightGray">
       <Head>
