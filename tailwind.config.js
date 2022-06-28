@@ -31,11 +31,30 @@ module.exports = {
           '0%, 100%': { transform: 'translateY(30%)' },
           '50%': { transform: 'translateY(0)' },
         },
+        fade: {
+          '0%': { opacity: 0 },
+          '100%': { opacity: 1 },
+        },
+        fadeIn: {
+          '0%': { opacity: 0, transform: 'translateY(-15px)' },
+          '100%': { opacity: 1, transform: 'translateY(0)' },
+        },
+        fadeInToast: {
+          '0%': { opacity: 0, transform: 'translateX(70%)' },
+          '100%': { opacity: 1, transform: 'translateX(0)' },
+        },
+        fadeOutToast: {
+          '0%': { opacity: 1, transform: 'translateX(0)' },
+          '100%': { opacity: 0, transform: 'translateX(70%)' },
+        },
       },
       animation: {
         swisher: 'swish 0.5s ease-in-out forwards',
         spinner: 'spins 15s linear infinite',
         bouncy: 'bounced 1.5s linear infinite',
+        fader: 'fade 0.5s ease-in-out',
+        fadein: 'fadeIn 0.3s ease-in-out',
+        fadeToast: 'fadeInToast 0.3s, fadeOutToast 0.25s 2.75s',
       },
       fontFamily: {
         sanFrancisco: 'sanFrancisco',

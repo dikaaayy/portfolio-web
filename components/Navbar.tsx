@@ -1,11 +1,20 @@
 import Link from 'next/link'
-import React from 'react'
-import { FiSun, FiMoon } from 'react-icons/fi'
+import React, { useState, useRef, useEffect } from 'react'
+import { FiSun, FiMoon, FiChevronDown, FiChevronUp } from 'react-icons/fi'
+import { BsPersonCircle } from 'react-icons/bs'
+import { MdClose } from 'react-icons/md'
 import { useTheme } from 'next-themes'
 import Head from 'next/head'
+import { useSession, signOut } from 'next-auth/react'
+import Image from 'next/image'
+import Login from './login/Login'
 
 export default function Navbar() {
   const { theme, setTheme } = useTheme()
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+  const [isLoginModalOpened, setIsLoginModalOpened] = useState<any>(false)
+  const { data: session } = useSession()
+  const ref = useRef<HTMLButtonElement>(null)
 
   const darkHandler = () => {
     if (theme === 'dark') {
@@ -14,6 +23,23 @@ export default function Navbar() {
       setTheme('dark')
     }
   }
+  useEffect(() => {
+    const checkIfClickedOutside = (e: any) => {
+      if (isDropdownOpen && !ref?.current!.contains(e.target)) {
+        setIsDropdownOpen(false)
+      } else {
+        return
+      }
+    }
+    document.addEventListener('click', checkIfClickedOutside)
+    return () => {
+      document.removeEventListener('click', checkIfClickedOutside)
+    }
+  }, [isDropdownOpen])
+
+  useEffect(() => {
+    document.body.style.overflow = isLoginModalOpened ? 'hidden' : 'scroll'
+  }, [isLoginModalOpened])
 
   return (
     <>
@@ -33,7 +59,7 @@ export default function Navbar() {
             <a className="navbar-button">Portfolio</a>
           </Link>
         </div>
-        <div className="vertical-center">
+        <div className="vertical-center space-x-5">
           <button className="dark-mode-button group" onClick={darkHandler}>
             {process.browser ? (
               theme === 'dark' ? (
@@ -46,8 +72,82 @@ export default function Navbar() {
               )
             ) : null}
           </button>
+          <button
+            className="vertical-center relative"
+            onClick={() => {
+              setIsDropdownOpen(!isDropdownOpen)
+            }}
+            ref={ref}
+          >
+            {isDropdownOpen ? (
+              <>
+                {session ? (
+                  <>
+                    <Image
+                      src={session?.user?.image!}
+                      width={40}
+                      height={40}
+                      className="rounded-full"
+                      layout="fixed"
+                    />
+                    <FiChevronUp className="animate-fader" size={30} />
+                  </>
+                ) : (
+                  <>
+                    <BsPersonCircle size={40} />
+                    <FiChevronUp className="animate-fader" size={30} />
+                  </>
+                )}
+                <div className="absolute top-12 -left-0 animate-fadein cursor-default rounded-md bg-[#b1a784] text-white dark:bg-[#c7c7c7] dark:text-black">
+                  {session ? (
+                    <p
+                      onClick={() => signOut()}
+                      className="cursor-pointer px-4 py-2"
+                    >
+                      Logout
+                    </p>
+                  ) : (
+                    <>
+                      <p
+                        className="cursor-pointer px-4 py-2"
+                        onClick={() => {
+                          setIsLoginModalOpened(true)
+                          console.log('hidden')
+                        }}
+                      >
+                        Login
+                      </p>
+                    </>
+                  )}
+                </div>
+              </>
+            ) : session ? (
+              <>
+                <Image
+                  src={session?.user?.image!}
+                  width={40}
+                  height={40}
+                  className="rounded-full"
+                  layout="fixed"
+                />
+                <FiChevronDown className="animate-fader" size={30} />
+              </>
+            ) : (
+              <>
+                <BsPersonCircle size={40} />
+                <FiChevronDown className="animate-fader" size={30} />
+              </>
+            )}
+          </button>
         </div>
       </div>
+      {isLoginModalOpened && (
+        <Login
+          closeModal={() => {
+            setIsLoginModalOpened(false)
+          }}
+        />
+      )}
     </>
   )
 }
