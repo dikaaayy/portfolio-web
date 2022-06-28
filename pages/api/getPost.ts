@@ -9,6 +9,7 @@ export default async function handler(
     select: {
       project_name: true,
       image: true,
+      content: true,
     },
     orderBy: {
       id: 'desc',

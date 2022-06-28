@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { useCallback, useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Navbar from '../../components/Navbar'
 import { prisma } from '../../lib/prisma'
 import { RiCalendarCheckLine } from 'react-icons/ri'
@@ -9,7 +9,6 @@ import Link from 'next/link'
 import Comment from '../../components/Comment'
 import { getSession, useSession } from 'next-auth/react'
 import Login from '../../components/login/Login'
-import Toast from '../../components/Toast'
 
 export async function getServerSideProps(context: any) {
   const { project_title } = context.query
@@ -53,6 +52,7 @@ export default function Detail({ post, user }: any) {
   const [isMounted, setIsMounted] = useState(false)
   const [isLoginModalOpened, setIsLoginModalOpened] = useState<any>(false)
   const { data: session } = useSession()
+  const contentRef = useRef<any>(null)
   // console.log(user)
 
   useEffect(() => {
@@ -65,8 +65,20 @@ export default function Detail({ post, user }: any) {
   }, [])
 
   useEffect(() => {
+    contentRef.current.innerHTML = post.content
+  }, [isMounted])
+
+  useEffect(() => {
     document.body.style.overflow = isLoginModalOpened ? 'hidden' : 'auto'
   }, [isLoginModalOpened])
+
+  const textToElement = (text: any) => {
+    const result = text.replace(/\"/g, '')
+    // console.log(result)
+    return result
+  }
+
+  console.log(textToElement(post.content))
 
   return (
     <>
@@ -116,9 +128,10 @@ export default function Detail({ post, user }: any) {
                   </a>
                 </Link>
               </div>
-              <p className="select-none text-justify text-[1.1rem] tracking-wide first-letter:float-left first-letter:mr-3 first-letter:text-6xl first-letter:font-semibold sm:text-lg sm:first-letter:text-7xl">
-                {post.content}
-              </p>
+              <div
+                className="cursor-default text-justify text-[1.1rem] tracking-wide first-letter:float-left first-letter:mr-3 first-letter:text-6xl first-letter:font-semibold sm:text-lg sm:first-letter:text-7xl"
+                ref={contentRef}
+              ></div>
             </div>
           </div>
           <>
