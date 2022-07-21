@@ -6,7 +6,7 @@ import { useState } from 'react'
 export default function MainHeader({ onClick }: any) {
   const [isOpen, setIsOpen] = useState(false)
   return (
-    <main className="relative flex h-screen w-screen select-none flex-col items-center justify-center gap-y-5 pt-20 sm:flex-row sm:gap-y-0">
+    <main className="relative flex h-screen w-full select-none flex-col items-center justify-center gap-y-5 pt-20 sm:flex-row sm:gap-y-0">
       <div className="order-2 flex flex-col items-center justify-center gap-y-4 sm:order-1 md:w-1/2">
         <div className="flex w-1/2 justify-center sm:w-1/3">
           <p className="text-5xl font-semibold sm:text-6xl">

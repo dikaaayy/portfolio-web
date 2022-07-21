@@ -38,7 +38,7 @@ export default function Navbar() {
   }, [isDropdownOpen])
 
   useEffect(() => {
-    document.body.style.overflow = isLoginModalOpened ? 'hidden' : 'scroll'
+    document.body.style.overflow = isLoginModalOpened ? 'hidden' : 'overlay'
   }, [isLoginModalOpened])
 
   return (
@@ -51,7 +51,7 @@ export default function Navbar() {
         )}
       </Head>
       <div className="navbar-container">
-        <div className="vertical-center gap-x-10">
+        <div className="vertical-center gap-x-6 sm:gap-x-10">
           <Link href="/">
             <a className="navbar-button">Home</a>
           </Link>
@@ -59,7 +59,7 @@ export default function Navbar() {
             <a className="navbar-button">Portfolio</a>
           </Link>
         </div>
-        <div className="vertical-center space-x-5">
+        <div className="vertical-center gap-x-2 sm:gap-x-5">
           <button className="dark-mode-button group" onClick={darkHandler}>
             {process.browser ? (
               theme === 'dark' ? (

@@ -2,32 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-::-webkit-scrollbar {
-  display: none;
-  background: #1f1f1f;
-}
-::-webkit-scrollbar-thumb {
-  background: #fbf7e7;
-  border-radius: 15px;
-}
-
-::-moz-selection {
-  background: #969696;
-}
-
-::selection {
-  background: #969696;
-}
-
 @layer components {
   .navbar-container {
-    @apply fixed top-0 z-50 flex h-20 w-screen select-none justify-between border-b-[1px] border-customLight-darkGray bg-customLight-lightGray px-10 font-sanFrancisco font-medium tracking-wider text-customLight-darkGray dark:border-customDark-lightGray  dark:bg-customDark-darkGray dark:text-customDark-lightGray md:justify-around md:px-0;
+    @apply fixed top-0 z-50 flex h-20 w-full select-none justify-between border-b-[1px] border-customLight-darkGray bg-customLight-lightGray px-5 pr-2 font-sanFrancisco font-medium tracking-wider text-customLight-darkGray dark:border-customDark-lightGray dark:bg-customDark-darkGray  dark:text-customDark-lightGray sm:px-10 md:justify-around md:px-0;
   }
   .navbar-button {
-    @apply rounded-md px-3 py-2 text-lg transition hover:bg-customLight-cream dark:hover:bg-inherit dark:hover:bg-[#2c2c2c];
+    @apply rounded-md transition hover:bg-customLight-cream dark:hover:bg-inherit dark:hover:bg-[#2c2c2c] sm:text-lg md:px-3 md:py-2;
   }
   .dark-mode-button {
-    @apply rounded-md bg-customLight-cream p-2 dark:bg-[#2e2e2e];
+    @apply rounded-md bg-customLight-cream p-1 dark:bg-[#2e2e2e] sm:p-2;
   }
   .portfolio-container {
     @apply min-h-max bg-customLight-lightGray pb-8 text-customLight-darkGray dark:bg-customDark-darkGray dark:text-customDark-lightGray;
@@ -74,4 +57,26 @@
     font-weight: 700;
     src: url('../fonts/sfBold.otf') format('opentype');
   }
+}
+
+::-webkit-scrollbar {
+  background: transparent;
+  height: 9px;
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #757575;
+  border-radius: 15px;
+}
+
+::-moz-selection {
+  background: #969696;
+}
+
+body {
+  overflow: overlay;
+}
+
+::selection {
+  background: #969696;
 }
