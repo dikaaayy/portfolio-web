@@ -69,7 +69,7 @@ export default function Detail({ post, user }: any) {
   }, [isMounted])
 
   useEffect(() => {
-    document.body.style.overflow = isLoginModalOpened ? 'hidden' : 'auto'
+    document.body.style.overflow = isLoginModalOpened ? 'hidden' : 'overlay'
   }, [isLoginModalOpened])
 
   return (
