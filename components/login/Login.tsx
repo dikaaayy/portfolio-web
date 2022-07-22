@@ -20,7 +20,7 @@ export default function Login({ closeModal }: any) {
           </p>
           <div className="flex flex-col space-y-2">
             <button
-              className="flex items-center space-x-2 rounded-full border-[1px] border-customLight-darkGray py-2 px-8 font-medium dark:border-inherit"
+              className="flex items-center space-x-2 rounded-full border-[1px] border-customLight-darkGray py-2 px-8 font-medium transition hover:bg-[#bbae86] dark:border-inherit dark:hover:bg-[#8a8a8a]"
               onClick={() => signIn('google')}
             >
               <p className="text-customLight-darkGray dark:text-inherit">
@@ -29,7 +29,7 @@ export default function Login({ closeModal }: any) {
               <FcGoogle size={40} />
             </button>
             <button
-              className="flex items-center space-x-2 rounded-full border-[1px] border-customLight-darkGray py-2 px-8 font-medium dark:border-inherit"
+              className="flex items-center space-x-2 rounded-full border-[1px] border-customLight-darkGray py-2 px-8 font-medium transition hover:bg-[#bbae86] dark:border-inherit dark:hover:bg-[#8a8a8a]"
               onClick={() => signIn('github')}
             >
               <p className="text-customLight-darkGray dark:text-inherit">

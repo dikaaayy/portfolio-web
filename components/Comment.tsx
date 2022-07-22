@@ -59,7 +59,7 @@ export default function Comment({
     setUserComment('')
   }
   return (
-    <div className="mx-auto mt-10 w-[85%] rounded-md bg-[#706b56] p-5 text-white shadow-xl dark:bg-[#d6d6d6] dark:text-black sm:w-[80vw] lg:w-[70vw] xl:w-[65%]">
+    <div className="mx-auto mt-10 w-[85%] cursor-default rounded-md bg-[#706b56] p-5 text-white shadow-xl dark:bg-[#d6d6d6] dark:text-black sm:w-[80vw] lg:w-[70vw] xl:w-[65%]">
       <p className="text-2xl font-medium">Leave Your Comment!</p>
       <form className="mt-8 flex flex-col space-y-2" onSubmit={submitHandler}>
         <label htmlFor="comment" className="font-medium">

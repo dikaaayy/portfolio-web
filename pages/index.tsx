@@ -44,7 +44,7 @@ const Home: NextPage = () => {
             <Spin />
           </div>
         </div>
-        <div className="mx-auto mb-10 block w-[30%] rounded-2xl bg-customLight-darkGray pt-1 pb-6 text-3xl font-medium text-customLight-lightGray dark:bg-[#808080] dark:text-white">
+        <div className="mx-auto mb-10 block w-[92%] rounded-2xl bg-customLight-darkGray pt-1 pb-6 text-3xl font-medium text-customLight-lightGray dark:bg-[#808080] dark:text-white sm:w-[50%] md:w-[40%] lg:w-[35%]">
           <div className="animate-bouncy text-center">
             <Link href="/portfolio">
               <a>Find more about my latest work here!</a>
