@@ -23,19 +23,20 @@ export default function Navbar() {
       setTheme('dark')
     }
   }
-  useEffect(() => {
-    const checkIfClickedOutside = (e: any) => {
-      if (isDropdownOpen && !ref?.current!.contains(e.target)) {
-        setIsDropdownOpen(false)
-      } else {
-        return
-      }
-    }
-    document.addEventListener('click', checkIfClickedOutside)
-    return () => {
-      document.removeEventListener('click', checkIfClickedOutside)
-    }
-  }, [isDropdownOpen])
+  // useEffect(() => {
+  //   const checkIfClickedOutside = (e: any) => {
+  //     if (isDropdownOpen && !ref?.current!.contains(e.target)) {
+  //       setIsDropdownOpen(false)
+  //       // alert('tutup')
+  //     } else {
+  //       return
+  //     }
+  //   }
+  //   document.addEventListener('click', checkIfClickedOutside)
+  //   return () => {
+  //     document.removeEventListener('click', checkIfClickedOutside)
+  //   }
+  // }, [isDropdownOpen])
 
   useEffect(() => {
     document.body.style.overflow = isLoginModalOpened ? 'hidden' : 'overlay'
@@ -77,7 +78,6 @@ export default function Navbar() {
             onClick={() => {
               setIsDropdownOpen(!isDropdownOpen)
             }}
-            ref={ref}
           >
             {isDropdownOpen ? (
               <>
@@ -112,7 +112,6 @@ export default function Navbar() {
                         className="cursor-pointer px-4 py-2"
                         onClick={() => {
                           setIsLoginModalOpened(true)
-                          console.log('hidden')
                         }}
                       >
                         Login
