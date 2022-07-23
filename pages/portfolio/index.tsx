@@ -9,6 +9,9 @@ import {
   SiThemoviedatabase,
   SiSocketdotio,
   SiExpress,
+  SiPostgresql,
+  SiPrisma,
+  SiDigitalocean,
 } from 'react-icons/si'
 import Link from 'next/link'
 import Navbar from '../../components/Navbar'
@@ -61,6 +64,12 @@ export default function portfolio({ posts }: any) {
     if (tech === 'TMDB API') return <SiThemoviedatabase size={18} />
     if (tech === 'Socket.IO') return <SiSocketdotio size={18} />
     if (tech === 'ExpressJS') return <SiExpress size={18} />
+    if (tech === 'Prisma')
+      return <SiPrisma size={18} className="text-[#21406e]" />
+    if (tech === 'Postgresql')
+      return <SiPostgresql size={18} className="text-[#336791]" />
+    if (tech === 'Digital Ocean')
+      return <SiDigitalocean size={18} className="text-[#008bcf]" />
   }
   return (
     <div className="font-sanFrancisco">
