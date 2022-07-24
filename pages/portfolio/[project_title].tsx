@@ -103,14 +103,18 @@ export default function Detail({ post, user }: any) {
                 {post.project_name}
               </p>
               <div className="vertical-center gap-x-4 font-medium">
-                <Link href={post.live_preview}>
-                  <a
-                    className="text-[#c9c9c9] transition hover:text-inherit dark:text-inherit dark:hover:text-[#575757]"
-                    target={'_blank'}
-                  >
-                    Live Preview
-                  </a>
-                </Link>
+                {post.live_preview ? (
+                  <Link href={post.live_preview}>
+                    <a
+                      className="text-[#c9c9c9] transition hover:text-inherit dark:text-inherit dark:hover:text-[#575757]"
+                      target={'_blank'}
+                    >
+                      Live Preview
+                    </a>
+                  </Link>
+                ) : (
+                  <></>
+                )}
                 <Link href={post.github_repo}>
                   <a
                     className="text-[#c9c9c9] transition hover:text-inherit dark:text-inherit dark:hover:text-[#575757]"

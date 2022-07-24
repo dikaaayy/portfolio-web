@@ -21,6 +21,27 @@ const Home: NextPage = () => {
     <div className="relative overflow-x-hidden bg-customLight-lightGray pb-[10rem] font-sanFrancisco text-customLight-darkGray dark:bg-customDark-darkGray dark:text-customDark-lightGray">
       <Head>
         <title>My Personal Web | Dika</title>
+        <meta name="title" content="My Personal Web | Dika" />
+        <meta
+          name="description"
+          content="Hi, I am Andika Yudhistira, a Software Developer that mainly focuses in Frontend development. Besides that, I love to explore latest technology and/or framework to ease the development process. On top of that, I am also an active student at Universitas Gadjah Mada, majoring in Computer Science."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.andikay.me/" />
+        <meta property="og:title" content="My Personal Web | Dika" />
+        <meta
+          property="og:description"
+          content="Hi, I am Andika Yudhistira, a Software Developer that mainly focuses in Frontend development. Besides that, I love to explore latest technology and/or framework to ease the development process. On top of that, I am also an active student at Universitas Gadjah Mada, majoring in Computer Science."
+        />
+        <meta property="og:image" content="/asset/metaImage.png" />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://www.andikay.me/" />
+        <meta property="twitter:title" content="My Personal Web | Dika" />
+        <meta
+          property="twitter:description"
+          content="Hi, I am Andika Yudhistira, a Software Developer that mainly focuses in Frontend development. Besides that, I love to explore latest technology and/or framework to ease the development process. On top of that, I am also an active student at Universitas Gadjah Mada, majoring in Computer Science."
+        />
+        <meta property="twitter:image" content="/asset/metaImage.png" />
       </Head>
       <Navbar />
       <>

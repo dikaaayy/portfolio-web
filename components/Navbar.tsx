@@ -23,6 +23,7 @@ export default function Navbar() {
       setTheme('dark')
     }
   }
+  // console.log(theme)
   // useEffect(() => {
   //   const checkIfClickedOutside = (e: any) => {
   //     if (isDropdownOpen && !ref?.current!.contains(e.target)) {
@@ -45,7 +46,7 @@ export default function Navbar() {
   return (
     <>
       <Head>
-        {theme === 'dark' ? (
+        {theme === 'dark' || theme === 'system' ? (
           <link rel="icon" href="/asset/moon.svg" />
         ) : (
           <link rel="icon" href="/asset/sun.svg" />
@@ -63,7 +64,7 @@ export default function Navbar() {
         <div className="vertical-center gap-x-2 sm:gap-x-5">
           <button className="dark-mode-button group" onClick={darkHandler}>
             {process.browser ? (
-              theme === 'dark' ? (
+              theme === 'dark' || theme === 'system' ? (
                 <FiSun size={30} className="transition hover:text-sunYellow" />
               ) : (
                 <FiMoon

@@ -9,7 +9,7 @@ import {
   SiThemoviedatabase,
   SiSocketdotio,
   SiExpress,
-  SiPostgresql,
+  SiMysql,
   SiPrisma,
   SiDigitalocean,
 } from 'react-icons/si'
@@ -66,8 +66,8 @@ export default function portfolio({ posts }: any) {
     if (tech === 'ExpressJS') return <SiExpress size={18} />
     if (tech === 'Prisma')
       return <SiPrisma size={18} className="text-[#21406e]" />
-    if (tech === 'Postgresql')
-      return <SiPostgresql size={18} className="text-[#336791]" />
+    if (tech === 'MySQL')
+      return <SiMysql size={20} className="text-[#2b597e]" />
     if (tech === 'Digital Ocean')
       return <SiDigitalocean size={18} className="text-[#008bcf]" />
   }
