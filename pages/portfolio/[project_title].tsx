@@ -8,18 +8,50 @@ import Link from 'next/link'
 import { Posts } from '../../lib/post'
 import { timeFilter } from '../../lib/helper'
 
-export async function getServerSideProps(context: any) {
-  const { project_title } = context.query
-  const post = Posts.filter(
-    (item: any) => item.project_title === project_title
-  )[0]
-  if (!post) {
+export async function getStaticPaths() {
+  const data = Posts.sort((a, b) => {
+    return b.id - a.id
+  })
+
+  const paths = data.map((post: any) => {
     return {
-      notFound: true,
+      params: {
+        project_title: post.project_title,
+      },
     }
+  })
+
+  return {
+    paths,
+    fallback: false,
   }
-  return { props: { post: JSON.parse(JSON.stringify(post)) } }
 }
+
+export async function getStaticProps(context: any) {
+  const project_title = context.params.project_title
+  const datas = Posts.filter((post: any) => post.project_title == project_title)
+  const data = datas[0]
+
+  return {
+    props: {
+      post: data,
+    },
+  }
+}
+
+// export async function getServerSideProps(context: any) {
+//   const { project_title } = context.query
+//   const post = Posts.filter(
+//     (item: any) => item.project_title === project_title
+//   )[0]
+//   if (!post) {
+//     return {
+//       notFound: true,
+//     }
+//   }
+//   return { props: { post: JSON.parse(JSON.stringify(post)) } }
+// }
+
 export default function Detail({ post }: any) {
   const [images, setImages] = useState<string[]>([])
   const [isMounted, setIsMounted] = useState(false)

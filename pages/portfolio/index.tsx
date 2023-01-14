@@ -20,7 +20,7 @@ import Navbar from '../../components/Navbar'
 import { filterImage, techStackArr } from '../../lib/helper'
 import { Posts } from '../../lib/post'
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const data = Posts.sort((a, b) => {
     return b.id - a.id
   })
@@ -31,6 +31,18 @@ export async function getServerSideProps() {
     },
   }
 }
+
+// export async function getServerSideProps() {
+//   const data = Posts.sort((a, b) => {
+//     return b.id - a.id
+//   })
+
+//   return {
+//     props: {
+//       posts: data,
+//     },
+//   }
+// }
 
 export default function portfolio({ posts }: { posts: any[] }) {
   const filterTechStack = (tech: string) => {
