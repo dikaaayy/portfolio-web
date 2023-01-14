@@ -21,12 +21,13 @@ export default function MainHeader({ onClick }: any) {
             height={2930}
             width={2930}
             className="rounded-md"
+            alt="my picture"
           />
         </div>
         <div className="flex gap-x-4">
           <div className="group rounded-full">
             <div className="main-social-button vertical-center">
-              <Link href="https://www.github.com/dikaaayy">
+              <Link href="https://www.github.com/dikaaayy" legacyBehavior>
                 <a target="_blank" className="flex gap-x-1">
                   <BsGithub size={25} />
                   <p>Github</p>
@@ -36,7 +37,10 @@ export default function MainHeader({ onClick }: any) {
           </div>
           <div className="group rounded-full">
             <div className="main-social-button vertical-center">
-              <Link href="https://www.linkedin.com/in/andika-yudhistira-1aab76206">
+              <Link
+                href="https://www.linkedin.com/in/andika-yudhistira-1aab76206"
+                legacyBehavior
+              >
                 <a target="_blank" className="flex gap-x-1">
                   <div className="rounded-md bg-white">
                     <BsLinkedin size={25} className="text-[#0077B5]" />
@@ -48,7 +52,7 @@ export default function MainHeader({ onClick }: any) {
           </div>
           <div className="group rounded-full">
             <div className="main-social-button vertical-center">
-              <Link href="mailto:andikayudhistira@mail.ugm.ac.id">
+              <Link href="mailto:andikayudhistira3@gmail.com" legacyBehavior>
                 <a target="_blank" className="flex gap-x-1">
                   <BsGlobe size={22} />
                   <p>Email</p>

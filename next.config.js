@@ -7,6 +7,7 @@ module.exports = {
       'imgbb.com',
       'avatars.githubusercontent.com',
       'lh3.googleusercontent.com',
+      'raw.githubusercontent.com',
     ],
   },
 }

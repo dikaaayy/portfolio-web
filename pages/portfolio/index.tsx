@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import { prisma } from '../../lib/prisma'
 import Head from 'next/head'
 import {
   SiNextdotjs,
@@ -12,21 +11,18 @@ import {
   SiMysql,
   SiPrisma,
   SiDigitalocean,
+  SiPostgresql,
+  SiNginx,
+  SiCloudflare,
 } from 'react-icons/si'
 import Link from 'next/link'
 import Navbar from '../../components/Navbar'
+import { filterImage, techStackArr } from '../../lib/helper'
+import { Posts } from '../../lib/post'
 
 export async function getServerSideProps() {
-  const data = await prisma.post.findMany({
-    select: {
-      project_name: true,
-      image: true,
-      tech_stack: true,
-      project_title: true,
-    },
-    orderBy: {
-      id: 'desc',
-    },
+  const data = Posts.sort((a, b) => {
+    return b.id - a.id
   })
 
   return {
@@ -36,17 +32,7 @@ export async function getServerSideProps() {
   }
 }
 
-export default function portfolio({ posts }: any) {
-  // console.log(posts)
-  const filterImage = (images: String) => {
-    const array = images.split(',')
-    return array[0]
-  }
-  const techStackArr = (stack: String) => {
-    const arrays = stack.split(',')
-    return arrays
-  }
-
+export default function portfolio({ posts }: { posts: any[] }) {
   const filterTechStack = (tech: string) => {
     if (tech === 'NextJS') return <SiNextdotjs size={18} />
     if (tech === 'TailwindCSS')
@@ -54,7 +40,7 @@ export default function portfolio({ posts }: any) {
     if (tech === 'Recoil State Management')
       return (
         <div className="vertical-center">
-          <Image src="/asset/recoil.svg" width={18} height={18} />
+          <Image src="/asset/recoil.svg" width={18} height={18} alt="recoil" />
         </div>
       )
     if (tech === 'ReactJS')
@@ -68,6 +54,12 @@ export default function portfolio({ posts }: any) {
       return <SiPrisma size={18} className="text-[#21406e]" />
     if (tech === 'MySQL')
       return <SiMysql size={20} className="text-[#2b597e]" />
+    if (tech === 'PostgreSQL')
+      return <SiPostgresql size={20} className="text-[#2b597e]" />
+    if (tech === 'NGINX')
+      return <SiNginx size={20} className="text-[#009A17]" />
+    if (tech === 'Cloudflare')
+      return <SiCloudflare size={20} className="text-[#F48120]" />
     if (tech === 'Digital Ocean')
       return <SiDigitalocean size={18} className="text-[#008bcf]" />
   }
@@ -89,14 +81,21 @@ export default function portfolio({ posts }: any) {
               <Link
                 key={post.project_name}
                 href={'/portfolio/' + post.project_title}
+                legacyBehavior
               >
                 <a className="portfolio-card">
-                  <div className="bg-[#d1c8a6] px-10 py-2 dark:bg-[#808080]">
-                    <Image
-                      src={filterImage(post.image)}
-                      width={2532}
-                      height={1472}
-                    />
+                  <div className="grid place-content-center bg-[#d1c8a6] px-10 py-2 dark:bg-[#808080]">
+                    <div
+                      className="relative mx-auto h-[200px] w-[330px] overflow-hidden rounded-md md:h-[180px] md:w-[300px]
+                    xl:h-[220px] xl:w-[380px] 2xl:h-[500px] 2xl:w-[650px] "
+                    >
+                      <Image
+                        fill
+                        src={filterImage(post.image)}
+                        alt={'portfolio picture'}
+                        className="object-scale-down"
+                      />
+                    </div>
                   </div>
                   <div className="space-y-1 bg-[#706b56] px-4 py-2 dark:bg-[#d6d6d6]">
                     <div className="flex items-end gap-x-3">

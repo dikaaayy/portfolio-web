@@ -10,7 +10,7 @@
     @apply rounded-md transition hover:bg-customLight-cream dark:hover:bg-inherit dark:hover:bg-[#2c2c2c] sm:text-lg md:px-3 md:py-2;
   }
   .dark-mode-button {
-    @apply rounded-md bg-customLight-cream p-1 dark:bg-[#2e2e2e] sm:p-2;
+    @apply rounded-md bg-customLight-cream p-2 dark:bg-[#2e2e2e] sm:p-2;
   }
   .portfolio-container {
     @apply min-h-max bg-customLight-lightGray pb-8 text-customLight-darkGray dark:bg-customDark-darkGray dark:text-customDark-lightGray;

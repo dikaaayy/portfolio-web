@@ -6,13 +6,10 @@
     "start": "next start"
   },
   "dependencies": {
-    "@next-auth/prisma-adapter": "^1.0.3",
-    "@prisma/client": "^3.15.2",
-    "next": "latest",
-    "next-auth": "^4.10.3",
+    "next": "^13.1.2",
     "next-themes": "^0.2.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "^18",
+    "react-dom": "^18",
     "react-icons": "^4.3.1"
   },
   "devDependencies": {

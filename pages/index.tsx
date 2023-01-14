@@ -50,15 +50,17 @@ const Home: NextPage = () => {
           className="relative mt-20 mb-20 pb-16 sm:static sm:flex sm:justify-evenly md:mb-24 lg:mt-48"
           ref={aboutme}
         >
-          <div className="relative mx-auto w-[80vw] space-y-7 sm:mx-0 sm:w-[40%]">
+          <div className="relative mx-auto w-[80vw] cursor-default space-y-7 sm:mx-0 sm:w-[40%]">
             <p className="pr-2 text-[2.6rem] font-semibold sm:pr-0">About Me</p>
             <p className="rounded-md bg-[#838383] bg-opacity-10 p-2 text-lg tracking-wider text-black dark:bg-white dark:bg-opacity-10 dark:text-white sm:bg-inherit sm:p-0 sm:dark:bg-inherit">
-              I am a Software Developer, mainly focused in Frontend development,
-              using ReactJS. Besides that, I love to explore latest technology
-              and/or framework such as NextJS and TailwindCSS to ease the
-              development process. On top of that, I am also an active student
-              at Universitas Gadjah Mada, majoring in Computer Science and
-              expected to graduate in 2024.
+              I am a computer science student at Gadjah Mada University, set to
+              graduate in 2024. I am a software engineer in the making, with a
+              passion for web development and I love to explore latest
+              technology such as NextJS, TailwindCSS, and I also love to explore
+              about Cloud. I have a portfolio of expertly crafted websites, and
+              experience in Agile methodologies, Scrum, and DevOps. I am driven,
+              ambitious and always seeking new challenges to test my abilities.
+              I am poised to make a significant impact in the tech industry.
             </p>
           </div>
           <div className="vertical-center absolute top-10 bottom-0 left-0 right-0 m-auto blur-sm sm:static sm:m-0 sm:w-1/3 sm:blur-none">
@@ -67,7 +69,7 @@ const Home: NextPage = () => {
         </div>
         <div className="mx-auto mb-10 block w-[92%] rounded-2xl bg-customLight-darkGray pt-1 pb-6 text-3xl font-medium text-customLight-lightGray dark:bg-[#808080] dark:text-white sm:w-[50%] md:w-[40%] lg:w-[35%]">
           <div className="animate-bouncy text-center">
-            <Link href="/portfolio">
+            <Link href="/portfolio" legacyBehavior>
               <a>Find more about my latest work here!</a>
             </Link>
           </div>
